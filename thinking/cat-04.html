@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>习惯管理 · 思维模型</title>
+<style>
+:root{--bg:#0f0f13;--bg2:#16161d;--bg3:#1e1e28;--border:#2a2a38;--border2:#3a3a50;--text:#e8e8f0;--text2:#9090b0;--text3:#5a5a78;--accent:#7c6af7;--accent2:#a594f9;--c1:#56c596;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+.hero{background:linear-gradient(160deg,#16161d 0%,#0f0f13 100%);padding:50px 40px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(86,197,150,0.12) 0%,transparent 70%);}
+.nav-row{display:flex;align-items:center;gap:10px;margin-bottom:24px;position:relative;flex-wrap:wrap;}
+.back{color:var(--text3);text-decoration:none;font-size:12px;letter-spacing:1px;transition:color 0.2s;}.back:hover{color:var(--accent2);}
+.sep{color:var(--text3);font-size:12px;}
+.cat-badge{font-size:11px;background:rgba(86,197,150,0.15);color:var(--c1);border:1px solid rgba(86,197,150,0.3);padding:3px 10px;border-radius:10px;}
+.hero-icon{font-size:44px;margin-bottom:14px;position:relative;}
+.hero h1{font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:8px;position:relative;}
+.hero h1 em{color:var(--c1);font-style:normal;}
+.hero-sub{font-size:14px;color:var(--text2);position:relative;}
+.hero-meta{display:flex;gap:20px;margin-top:16px;position:relative;}
+.hero-meta span{font-size:12px;color:var(--text3);}.hero-meta strong{color:var(--text2);}
+.main{max-width:900px;margin:0 auto;padding:50px 30px;}
+.model-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;margin-bottom:14px;overflow:hidden;transition:border-color 0.2s;}
+.model-card.open{border-color:var(--border2);}
+.model-header{display:flex;align-items:center;gap:14px;padding:20px 24px;cursor:pointer;user-select:none;}
+.model-header:hover{background:rgba(255,255,255,0.02);}
+.model-num{font-size:11px;color:var(--text3);min-width:28px;flex-shrink:0;}
+.model-title{font-size:16px;font-weight:600;flex:1;}
+.model-tag{font-size:11px;padding:2px 10px;border-radius:10px;background:rgba(86,197,150,0.1);color:var(--c1);border:1px solid rgba(86,197,150,0.2);white-space:nowrap;}
+.model-arrow{color:var(--text3);font-size:12px;transition:transform 0.25s;flex-shrink:0;}
+.model-card.open .model-arrow{transform:rotate(180deg);}
+.model-body{display:none;padding:0 24px 24px;border-top:1px solid var(--border);}
+.model-card.open .model-body{display:block;}
+.model-desc{font-size:14px;color:var(--text2);line-height:1.9;margin-top:16px;}
+.model-steps{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.step{display:flex;gap:12px;align-items:flex-start;}
+.step-dot{width:22px;height:22px;border-radius:6px;background:rgba(86,197,150,0.15);color:var(--c1);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.step-text{font-size:13px;color:var(--text2);line-height:1.7;}
+.step-text strong{color:var(--text);display:block;margin-bottom:2px;}
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+.cat-nav a{font-size:12px;padding:6px 14px;border-radius:20px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);text-decoration:none;transition:all 0.2s;}
+.cat-nav a:hover,.cat-nav a.active{background:rgba(86,197,150,0.1);border-color:rgba(86,197,150,0.3);color:var(--c1);}
+footer{border-top:1px solid var(--border);padding:30px;text-align:center;color:var(--text3);font-size:12px;}
+footer a{color:var(--accent2);text-decoration:none;}
+@media(max-width:600px){.hero{padding:30px 20px;}.main{padding:30px 16px;}.hero h1{font-size:26px;}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="nav-row">
+    <a href="../index.html" class="back">主页</a><span class="sep">/</span>
+    <a href="index.html" class="back">120思维模型</a><span class="sep">/</span>
+    <span class="cat-badge">✅ 习惯管理</span>
+  </div>
+  <div class="hero-icon">✅</div>
+  <h1><em>习惯管理</em>模型</h1>
+  <p class="hero-sub">用科学方法建立好习惯、戒除坏习惯，让行为自动化为人生复利</p>
+  <div class="hero-meta"><span>共 <strong>10</strong> 个模型</span><span>编号 <strong>031–040</strong></span></div>
+</div>
+<div class="main">
+  <div class="cat-nav">
+    <a href="cat-01.html">🎓 学习</a>
+    <a href="cat-02.html">🧠 认知</a>
+    <a href="cat-03.html">💛 情绪</a>
+    <a href="cat-04.html" class="active">✅ 习惯</a>
+    <a href="cat-05.html">🎯 目标</a>
+    <a href="cat-06.html">🔄 复盘</a>
+    <a href="cat-07.html">💬 沟通</a>
+    <a href="cat-08.html">🤝 人际</a>
+    <a href="cat-09.html">💰 财富</a>
+    <a href="cat-10.html">🚀 商业</a>
+  </div>
+
+  <div class="model-card" id="m031">
+    <div class="model-header" onclick="toggle('m031')">
+      <span class="model-num">031</span>
+      <span class="model-title">习惯行为公式</span>
+      <span class="model-tag">习惯回路</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">查尔斯·杜希格提出习惯回路，詹姆斯·克利尔扩展为四步：提示-渴望-反应-奖励。理解这个回路，就能主动设计和改变习惯。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>提示Cue</strong>触发习惯的信号（时间、地点、情绪、人）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>渴望Craving</strong>对奖励的期待和动机（习惯的驱动力）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>反应Response</strong>实际执行的习惯行为</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>奖励Reward</strong>满足渴望的结果，强化回路</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m032">
+    <div class="model-header" onclick="toggle('m032')">
+      <span class="model-num">032</span>
+      <span class="model-title">如何上瘾模型</span>
+      <span class="model-tag">产品设计</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">Nir Eyal的Hooked钩子模型：触发-行动-多变奖励-投入。解释了为什么某些产品让人欲罢不能，也可用于设计让自己上瘾的好习惯。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>触发Trigger</strong>外部触发（通知）或内部触发（情绪、习惯）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>行动Action</strong>最简单的行为，降低摩擦是关键</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>多变奖励Variable Reward</strong>不可预测的奖励最能维持行为</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>投入Investment</strong>用户投入越多，越难离开</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m033">
+    <div class="model-header" onclick="toggle('m033')">
+      <span class="model-num">033</span>
+      <span class="model-title">四天习惯法</span>
+      <span class="model-tag">快速建立</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">用四天周期快速建立新习惯的方法。前三天是最难的，坚持到第四天会产生明显的心理转变，之后坚持会越来越容易。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>第1天</strong>启动，完成最小版本的习惯，重在开始</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>第2天</strong>坚持，即使很难也不要跳过，这是关键</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>第3天</strong>突破，这是最难的一天，撑过去就成功了</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>第4天</strong>转折，开始感受到习惯的力量和自我认同</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m034">
+    <div class="model-header" onclick="toggle('m034')">
+      <span class="model-num">034</span>
+      <span class="model-title">天天进步法则</span>
+      <span class="model-tag">复利成长</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">每天1%的改进，一年后提升37倍（1.01^365≈37.78）。反之，每天退步1%，一年后只剩0.03。微小的持续改进产生惊人的复利效果。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>设定1%改进目标</strong>每天只需比昨天好一点点</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>记录进步</strong>可视化每天的微小改进，增强动力</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>保持一致性</strong>不追求完美，追求持续，不要打破链条</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m035">
+    <div class="model-header" onclick="toggle('m035')">
+      <span class="model-num">035</span>
+      <span class="model-title">习惯叠加法</span>
+      <span class="model-tag">习惯绑定</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">将新习惯附加在已有习惯之后。公式：当我完成[现有习惯]后，我将[新习惯]。利用已有习惯作为触发器，降低建立新习惯的难度。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>识别锚点习惯</strong>找一个每天必做的现有习惯作为触发器</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>设计叠加</strong>在锚点习惯后立即执行新习惯</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>从小开始</strong>新习惯从2分钟版本开始，逐步扩展</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m036">
+    <div class="model-header" onclick="toggle('m036')">
+      <span class="model-num">036</span>
+      <span class="model-title">两分钟法则</span>
+      <span class="model-tag">启动降阻</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">任何习惯都从两分钟版本开始。读书变成读一页，运动变成穿上运动鞋。降低启动门槛，让开始变得极其容易，克服拖延。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>缩小习惯</strong>将目标习惯缩减到2分钟内可完成的版本</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>只要开始</strong>两分钟后可以停止，但通常会继续下去</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>逐步扩展</strong>习惯稳定后，再慢慢增加时长和难度</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m037">
+    <div class="model-header" onclick="toggle('m037')">
+      <span class="model-num">037</span>
+      <span class="model-title">环境设计法</span>
+      <span class="model-tag">环境优化</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">通过改变环境降低好习惯的阻力、增加坏习惯的阻力。环境是行为最强大的塑造者，好的环境设计让好行为成为默认选项。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>增加好习惯的可见性</strong>把书放在桌上，把水杯放在显眼处</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>减少坏习惯的便利性</strong>把手机放在另一个房间</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>创造专属空间</strong>特定地点只做特定事情，建立条件反射</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m038">
+    <div class="model-header" onclick="toggle('m038')">
+      <span class="model-num">038</span>
+      <span class="model-title">习惯追踪法</span>
+      <span class="model-tag">可视化</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">可视化记录习惯坚持情况。不要打破链条——在日历上标记每天完成的习惯，形成连续的链条，利用损失厌恶心理维持习惯。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>选择追踪工具</strong>纸质日历、习惯App或简单表格</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>每天打卡</strong>完成后立即标记，获得即时满足感</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>分析数据</strong>每周回顾完成率，找出薄弱环节并改进</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m039">
+    <div class="model-header" onclick="toggle('m039')">
+      <span class="model-num">039</span>
+      <span class="model-title">习惯契约法</span>
+      <span class="model-tag">承诺机制</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">通过承诺与惩罚机制强化习惯。公开承诺（社会压力）+ 违约惩罚（损失厌恶）= 强大的习惯执行力。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>公开承诺</strong>向朋友或社群宣布你的习惯目标</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>设定惩罚</strong>违约时需要付出的代价（金钱、服务等）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>找监督人</strong>请一个人监督你的执行情况并负责执行惩罚</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m040">
+    <div class="model-header" onclick="toggle('m040')">
+      <span class="model-num">040</span>
+      <span class="model-title">习惯身份认同</span>
+      <span class="model-tag">身份转变</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">从我想做到我就是这样的人。最持久的习惯改变来自身份认同的转变，而非目标驱动。每次执行习惯都是在投票给你想成为的那个人。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>定义身份</strong>我是一个每天运动的人，而非我要减肥</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>用行动投票</strong>每次执行习惯=为新身份投一票</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>积累证据</strong>收集证明新身份的行为证据，强化认同</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer><p><a href="cat-03.html">← 情绪管理</a> &nbsp;·&nbsp; <a href="index.html">返回总览</a> &nbsp;·&nbsp; <a href="cat-05.html">目标管理 →</a></p></footer>
+<script>function toggle(id){document.getElementById(id).classList.toggle('open');}</script>
+</body>
+</html>

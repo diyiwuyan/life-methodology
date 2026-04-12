@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>思维导图法 · 8大学习模型</title>
+<style>
+:root{--bg:#0f0f13;--bg2:#16161d;--bg3:#1e1e28;--border:#2a2a38;--text:#e8e8f0;--text2:#9090b0;--text3:#5a5a78;--accent:#7c6af7;--accent2:#a594f9;--c1:#f06292;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+.hero{background:linear-gradient(160deg,#16161d 0%,#1e0f1a 100%);padding:50px 40px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 100% at 50% 0%,rgba(240,98,146,0.1) 0%,transparent 70%);}
+.nav-row{display:flex;align-items:center;gap:12px;margin-bottom:24px;position:relative;}
+.back{color:var(--text3);text-decoration:none;font-size:12px;letter-spacing:1px;transition:color 0.2s;}
+.back:hover{color:var(--accent2);}
+.sep{color:var(--text3);}
+.badge{font-size:11px;background:rgba(240,98,146,0.15);color:var(--c1);border:1px solid rgba(240,98,146,0.3);padding:3px 10px;border-radius:10px;}
+.hero-icon{font-size:48px;margin-bottom:16px;position:relative;}
+.hero h1{font-size:40px;font-weight:800;letter-spacing:-1px;margin-bottom:10px;position:relative;}
+.hero h1 em{color:var(--c1);font-style:normal;}
+.hero-sub{font-size:15px;color:var(--text2);position:relative;max-width:600px;}
+.main{max-width:860px;margin:0 auto;padding:50px 30px;}
+.section{margin-bottom:44px;}
+.section-title{font-size:13px;letter-spacing:3px;color:var(--text3);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px;}
+.card p{color:var(--text2);font-size:14px;line-height:1.9;}
+.card p+p{margin-top:12px;}
+/* 思维导图示意 */
+.mindmap{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:30px;text-align:center;}
+.mm-center{display:inline-block;background:rgba(240,98,146,0.2);border:2px solid rgba(240,98,146,0.5);border-radius:50%;width:80px;height:80px;line-height:80px;font-size:13px;font-weight:700;color:var(--c1);margin-bottom:20px;}
+.mm-branches{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.mm-branch{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px 16px;font-size:12px;color:var(--text2);}
+/* 规则 */
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.rule{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px;}
+.rule-num{font-size:24px;font-weight:800;color:rgba(240,98,146,0.4);margin-bottom:8px;}
+.rule-title{font-size:14px;font-weight:600;margin-bottom:6px;}
+.rule-desc{font-size:12px;color:var(--text3);line-height:1.6;}
+/* 步骤 */
+.steps{display:flex;flex-direction:column;gap:12px;}
+.step{display:flex;gap:16px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;}
+.step-num{width:36px;height:36px;border-radius:10px;background:rgba(240,98,146,0.15);color:var(--c1);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-title{font-size:15px;font-weight:600;margin-bottom:6px;}
+.step-desc{font-size:13px;color:var(--text2);line-height:1.7;}
+.quote{background:linear-gradient(135deg,rgba(240,98,146,0.08),rgba(124,106,247,0.08));border:1px solid rgba(240,98,146,0.2);border-radius:14px;padding:28px;text-align:center;}
+.quote p{font-size:18px;font-weight:500;color:var(--text);line-height:1.7;font-style:italic;}
+.quote cite{display:block;margin-top:12px;font-size:12px;color:var(--text3);}
+.page-nav{display:flex;justify-content:space-between;margin-top:50px;padding-top:30px;border-top:1px solid var(--border);}
+.page-nav a{color:var(--text2);text-decoration:none;font-size:13px;transition:color 0.2s;}
+.page-nav a:hover{color:var(--accent2);}
+footer{border-top:1px solid var(--border);padding:30px;text-align:center;color:var(--text3);font-size:12px;}
+footer a{color:var(--accent2);text-decoration:none;}
+@media(max-width:600px){.hero{padding:30px 20px;}.main{padding:30px 16px;}.rules{grid-template-columns:1fr;}.hero h1{font-size:28px;}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="nav-row">
+    <a href="../index.html" class="back">主页</a>
+    <span class="sep">/</span>
+    <a href="index.html" class="back">8大学习模型</a>
+    <span class="sep">/</span>
+    <span class="badge">MODEL 04</span>
+  </div>
+  <div class="hero-icon">🗺️</div>
+  <h1><em>思维导图</em>法</h1>
+  <p class="hero-sub">以中心主题向外放射发散，构建知识网络，激活大脑的联想与创造力，让学习可视化</p>
+</div>
+
+<div class="main">
+
+  <div class="section">
+    <div class="section-title">核心原理</div>
+    <div class="card">
+      <p>思维导图由托尼·博赞（Tony Buzan）在1970年代提出。它模仿大脑神经元的放射状连接方式，将知识以图形化、层级化的方式呈现。</p>
+      <p>相比线性笔记，思维导图能同时激活大脑的左脑（逻辑、语言）和右脑（图像、颜色、空间），让记忆更深刻，联想更丰富。<strong>关键词+图像+颜色+层级</strong>是思维导图的四大要素。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">结构示意</div>
+    <div class="mindmap">
+      <div class="mm-center">核心主题</div>
+      <div class="mm-branches">
+        <div class="mm-branch">🌿 主分支 A<br><small>子节点 · 子节点</small></div>
+        <div class="mm-branch">🌿 主分支 B<br><small>子节点 · 子节点</small></div>
+        <div class="mm-branch">🌿 主分支 C<br><small>子节点 · 子节点</small></div>
+        <div class="mm-branch">🌿 主分支 D<br><small>子节点 · 子节点</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">博赞七大法则</div>
+    <div class="rules">
+      <div class="rule"><div class="rule-num">01</div><div class="rule-title">中心图像</div><div class="rule-desc">用一个图像代表核心主题，放在纸张中央</div></div>
+      <div class="rule"><div class="rule-num">02</div><div class="rule-title">颜色区分</div><div class="rule-desc">每条主分支用不同颜色，增强视觉记忆</div></div>
+      <div class="rule"><div class="rule-num">03</div><div class="rule-title">关键词</div><div class="rule-desc">每个节点只写一个关键词，不写句子</div></div>
+      <div class="rule"><div class="rule-num">04</div><div class="rule-title">曲线分支</div><div class="rule-desc">用曲线而非直线，更接近大脑神经元形态</div></div>
+      <div class="rule"><div class="rule-num">05</div><div class="rule-title">层级结构</div><div class="rule-desc">从中心向外，越外层越具体</div></div>
+      <div class="rule"><div class="rule-num">06</div><div class="rule-title">图像辅助</div><div class="rule-desc">在节点旁加小图标，激活右脑记忆</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">实践步骤</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">确定中心主题</div>
+          <div class="step-desc">将核心概念写在纸张中央，用圆圈或图像框起来。横向放置A4纸，给发散留出更多空间。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">画出主分支</div>
+          <div class="step-desc">从中心向外画出3-7条主分支，每条代表一个主要类别。用不同颜色区分，写上关键词。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">继续细化子节点</div>
+          <div class="step-desc">在每条主分支上继续延伸子分支，越外层越具体。不要过度追求完整，先快速发散。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">添加连接与图像</div>
+          <div class="step-desc">用虚线连接不同分支间的关联，加入小图标增强记忆。完成后用自己的话复述整张导图。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">思维导图金句</div>
+    <div class="quote">
+      <p>"思维导图是终极的组织思维工具，它与大脑的自然运作方式完全一致。"</p>
+      <cite>— 托尼·博赞</cite>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="model-03.html">← 上一个：间隔重复法</a>
+    <a href="model-05.html">下一个：主动阅读法 →</a>
+  </div>
+</div>
+
+<footer>
+  <p><a href="../index.html">← 返回主页</a> &nbsp;·&nbsp; 人生方法论知识库</p>
+</footer>
+</body>
+</html>

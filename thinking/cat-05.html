@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>目标管理 · 思维模型</title>
+<style>
+:root{--bg:#0f0f13;--bg2:#16161d;--bg3:#1e1e28;--border:#2a2a38;--border2:#3a3a50;--text:#e8e8f0;--text2:#9090b0;--text3:#5a5a78;--accent:#7c6af7;--accent2:#a594f9;--c1:#f0c060;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+.hero{background:linear-gradient(160deg,#16161d 0%,#0f0f13 100%);padding:50px 40px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(240,192,96,0.12) 0%,transparent 70%);}
+.nav-row{display:flex;align-items:center;gap:10px;margin-bottom:24px;position:relative;flex-wrap:wrap;}
+.back{color:var(--text3);text-decoration:none;font-size:12px;letter-spacing:1px;transition:color 0.2s;}.back:hover{color:var(--accent2);}
+.sep{color:var(--text3);font-size:12px;}
+.cat-badge{font-size:11px;background:rgba(240,192,96,0.15);color:var(--c1);border:1px solid rgba(240,192,96,0.3);padding:3px 10px;border-radius:10px;}
+.hero-icon{font-size:44px;margin-bottom:14px;position:relative;}
+.hero h1{font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:8px;position:relative;}
+.hero h1 em{color:var(--c1);font-style:normal;}
+.hero-sub{font-size:14px;color:var(--text2);position:relative;}
+.hero-meta{display:flex;gap:20px;margin-top:16px;position:relative;}
+.hero-meta span{font-size:12px;color:var(--text3);}.hero-meta strong{color:var(--text2);}
+.main{max-width:900px;margin:0 auto;padding:50px 30px;}
+.model-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;margin-bottom:14px;overflow:hidden;transition:border-color 0.2s;}
+.model-card.open{border-color:var(--border2);}
+.model-header{display:flex;align-items:center;gap:14px;padding:20px 24px;cursor:pointer;user-select:none;}
+.model-header:hover{background:rgba(255,255,255,0.02);}
+.model-num{font-size:11px;color:var(--text3);min-width:28px;flex-shrink:0;}
+.model-title{font-size:16px;font-weight:600;flex:1;}
+.model-tag{font-size:11px;padding:2px 10px;border-radius:10px;background:rgba(240,192,96,0.1);color:var(--c1);border:1px solid rgba(240,192,96,0.2);white-space:nowrap;}
+.model-arrow{color:var(--text3);font-size:12px;transition:transform 0.25s;flex-shrink:0;}
+.model-card.open .model-arrow{transform:rotate(180deg);}
+.model-body{display:none;padding:0 24px 24px;border-top:1px solid var(--border);}
+.model-card.open .model-body{display:block;}
+.model-desc{font-size:14px;color:var(--text2);line-height:1.9;margin-top:16px;}
+.model-steps{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.step{display:flex;gap:12px;align-items:flex-start;}
+.step-dot{width:22px;height:22px;border-radius:6px;background:rgba(240,192,96,0.15);color:var(--c1);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.step-text{font-size:13px;color:var(--text2);line-height:1.7;}
+.step-text strong{color:var(--text);display:block;margin-bottom:2px;}
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+.cat-nav a{font-size:12px;padding:6px 14px;border-radius:20px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);text-decoration:none;transition:all 0.2s;}
+.cat-nav a:hover,.cat-nav a.active{background:rgba(240,192,96,0.1);border-color:rgba(240,192,96,0.3);color:var(--c1);}
+footer{border-top:1px solid var(--border);padding:30px;text-align:center;color:var(--text3);font-size:12px;}
+footer a{color:var(--accent2);text-decoration:none;}
+@media(max-width:600px){.hero{padding:30px 20px;}.main{padding:30px 16px;}.hero h1{font-size:26px;}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="nav-row">
+    <a href="../index.html" class="back">主页</a><span class="sep">/</span>
+    <a href="index.html" class="back">120思维模型</a><span class="sep">/</span>
+    <span class="cat-badge">🎯 目标管理</span>
+  </div>
+  <div class="hero-icon">🎯</div>
+  <h1><em>目标管理</em>模型</h1>
+  <p class="hero-sub">设定清晰目标，规划可执行路径，让每一步都指向你真正想要的未来</p>
+  <div class="hero-meta"><span>共 <strong>10</strong> 个模型</span><span>编号 <strong>041–050</strong></span></div>
+</div>
+<div class="main">
+  <div class="cat-nav">
+    <a href="cat-01.html">🎓 学习</a>
+    <a href="cat-02.html">🧠 认知</a>
+    <a href="cat-03.html">💛 情绪</a>
+    <a href="cat-04.html">✅ 习惯</a>
+    <a href="cat-05.html" class="active">🎯 目标</a>
+    <a href="cat-06.html">🔄 复盘</a>
+    <a href="cat-07.html">💬 沟通</a>
+    <a href="cat-08.html">🤝 人际</a>
+    <a href="cat-09.html">💰 财富</a>
+    <a href="cat-10.html">🚀 商业</a>
+  </div>
+
+  <div class="model-card" id="m041">
+    <div class="model-header" onclick="toggle('m041')">
+      <span class="model-num">041</span>
+      <span class="model-title">个人路线图</span>
+      <span class="model-tag">人生规划</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">可视化人生目标与行动路径规划。将长期愿景拆解为阶段性里程碑，再细化为具体行动，让抽象的人生目标变得清晰可执行。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>定义终点</strong>10年后你想成为什么样的人，过什么样的生活</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>设定里程碑</strong>3年、1年的阶段性目标，作为检查点</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>规划行动</strong>当前季度、当月的具体行动步骤</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m042">
+    <div class="model-header" onclick="toggle('m042')">
+      <span class="model-num">042</span>
+      <span class="model-title">人生目标清单</span>
+      <span class="model-tag">愿望清单</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">Bucket List：人生必做事项清单。将所有想做的事情写下来，定期回顾和更新，让人生不留遗憾，活出自己真正想要的样子。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>头脑风暴</strong>不加评判地写下所有想做的事，越多越好</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>分类整理</strong>按领域（旅行、技能、体验、关系等）分类</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>制定计划</strong>选出近期可实现的，制定具体的实现计划</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m043">
+    <div class="model-header" onclick="toggle('m043')">
+      <span class="model-num">043</span>
+      <span class="model-title">职业规划计算</span>
+      <span class="model-tag">职业发展</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">量化评估职业发展路径的方法。通过分析市场需求、个人优势、成长空间等维度，做出更理性的职业选择，避免随波逐流。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>评估现状</strong>当前技能水平、薪资、成长速度、满意度</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>分析选项</strong>不同路径的5年预期收益、风险和成长空间</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>做出选择</strong>基于数据和个人价值观综合判断</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m044">
+    <div class="model-header" onclick="toggle('m044')">
+      <span class="model-num">044</span>
+      <span class="model-title">职业规划公式</span>
+      <span class="model-tag">职业成长</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">职业成功=能力×平台×努力×运气。其中能力和平台是最可控的变量，选择好平台的重要性往往被低估，平台决定了努力的上限。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>提升能力</strong>持续学习，建立核心竞争力和差异化优势</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>选择平台</strong>在成长型平台上，普通人也能快速成长</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>持续努力</strong>在正确方向上的持续投入，等待运气降临</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m045">
+    <div class="model-header" onclick="toggle('m045')">
+      <span class="model-num">045</span>
+      <span class="model-title">NLP大脑编程</span>
+      <span class="model-tag">目标设定</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">神经语言程序学的目标设定技术。通过感官化、具体化目标，让大脑更清晰地看到目标，激活潜意识的驱动力，提升目标实现概率。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>感官化目标</strong>用视觉、听觉、感觉描述实现目标后的状态</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>检验生态</strong>目标实现后对生活各方面的影响是否平衡</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>设定触发器</strong>什么信号提醒你采取行动，建立条件反射</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m046">
+    <div class="model-header" onclick="toggle('m046')">
+      <span class="model-num">046</span>
+      <span class="model-title">OKR目标法</span>
+      <span class="model-tag">目标管理</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">Objectives & Key Results，由英特尔发明，谷歌发扬光大。O（目标）定义方向，KR（关键结果）衡量进度，让目标既有激励性又可量化。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>设定O</strong>鼓舞人心、有挑战性的定性目标（60-70%完成率为佳）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>制定KR</strong>2-5个可量化的关键结果，衡量O的实现程度</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>定期回顾</strong>每周检查进度，每季度评估和更新OKR</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m047">
+    <div class="model-header" onclick="toggle('m047')">
+      <span class="model-num">047</span>
+      <span class="model-title">SWOT分析法</span>
+      <span class="model-tag">战略分析</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">优势-劣势-机会-威胁四维分析框架，用于个人发展规划和战略决策。内部因素（优劣势）与外部因素（机会威胁）的系统分析。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>内部分析</strong>诚实评估自己的优势（S）和劣势（W）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>外部分析</strong>识别环境中的机会（O）和威胁（T）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>制定策略</strong>SO用优势抓机会，ST用优势应威胁，WO补劣势抓机会</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m048">
+    <div class="model-header" onclick="toggle('m048')">
+      <span class="model-num">048</span>
+      <span class="model-title">人生平衡轮</span>
+      <span class="model-tag">生活平衡</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">评估人生各维度满意度的可视化工具。将人生分为8个维度，评分后形成轮子，找出最需要改善的领域，实现更平衡的人生。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>为8个维度打分</strong>健康、财富、事业、家庭、社交、成长、娱乐、精神</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>绘制平衡轮</strong>连接各点，看轮子是否圆润，找出凹陷处</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>制定改善计划</strong>优先提升得分最低的1-2个维度</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m049">
+    <div class="model-header" onclick="toggle('m049')">
+      <span class="model-num">049</span>
+      <span class="model-title">逆向规划法</span>
+      <span class="model-tag">倒推规划</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">从终点倒推行动路径的规划方式。先确定最终目标，再倒推每个阶段需要完成什么，避免在错误方向上努力，确保每步都有意义。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>定义终点</strong>清晰描述最终想要达到的状态（越具体越好）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>倒推里程碑</strong>实现终点前需要完成什么，一步步往回推</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>确定当前行动</strong>今天需要做什么才能走向终点</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m050">
+    <div class="model-header" onclick="toggle('m050')">
+      <span class="model-num">050</span>
+      <span class="model-title">SMART目标法</span>
+      <span class="model-tag">目标设定</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">具体-可量化-可实现-相关-有时限。将模糊愿望转化为清晰可执行目标的经典框架，是所有目标管理方法的基础。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>S具体</strong>我要减肥→我要减掉10斤体重（具体化）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>M可量化</strong>设定可以测量进度的指标和检查点</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>T有时限</strong>在3个月内——截止日期创造紧迫感和行动力</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer><p><a href="cat-04.html">← 习惯管理</a> &nbsp;·&nbsp; <a href="index.html">返回总览</a> &nbsp;·&nbsp; <a href="cat-06.html">复盘管理 →</a></p></footer>
+<script>function toggle(id){document.getElementById(id).classList.toggle('open');}</script>
+</body>
+</html>

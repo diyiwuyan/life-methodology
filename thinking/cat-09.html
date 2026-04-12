@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财富管理 · 思维模型</title>
+<style>
+:root{--bg:#0f0f13;--bg2:#16161d;--bg3:#1e1e28;--border:#2a2a38;--border2:#3a3a50;--text:#e8e8f0;--text2:#9090b0;--text3:#5a5a78;--accent:#7c6af7;--accent2:#a594f9;--c1:#ffd54f;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+.hero{background:linear-gradient(160deg,#16161d 0%,#0f0f13 100%);padding:50px 40px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(255,213,79,0.12) 0%,transparent 70%);}
+.nav-row{display:flex;align-items:center;gap:10px;margin-bottom:24px;position:relative;flex-wrap:wrap;}
+.back{color:var(--text3);text-decoration:none;font-size:12px;letter-spacing:1px;transition:color 0.2s;}.back:hover{color:var(--accent2);}
+.sep{color:var(--text3);font-size:12px;}
+.cat-badge{font-size:11px;background:rgba(255,213,79,0.15);color:var(--c1);border:1px solid rgba(255,213,79,0.3);padding:3px 10px;border-radius:10px;}
+.hero-icon{font-size:44px;margin-bottom:14px;position:relative;}
+.hero h1{font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:8px;position:relative;}
+.hero h1 em{color:var(--c1);font-style:normal;}
+.hero-sub{font-size:14px;color:var(--text2);position:relative;}
+.hero-meta{display:flex;gap:20px;margin-top:16px;position:relative;}
+.hero-meta span{font-size:12px;color:var(--text3);}.hero-meta strong{color:var(--text2);}
+.main{max-width:900px;margin:0 auto;padding:50px 30px;}
+.model-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;margin-bottom:14px;overflow:hidden;transition:border-color 0.2s;}
+.model-card.open{border-color:var(--border2);}
+.model-header{display:flex;align-items:center;gap:14px;padding:20px 24px;cursor:pointer;user-select:none;}
+.model-header:hover{background:rgba(255,255,255,0.02);}
+.model-num{font-size:11px;color:var(--text3);min-width:28px;flex-shrink:0;}
+.model-title{font-size:16px;font-weight:600;flex:1;}
+.model-tag{font-size:11px;padding:2px 10px;border-radius:10px;background:rgba(255,213,79,0.1);color:var(--c1);border:1px solid rgba(255,213,79,0.2);white-space:nowrap;}
+.model-arrow{color:var(--text3);font-size:12px;transition:transform 0.25s;flex-shrink:0;}
+.model-card.open .model-arrow{transform:rotate(180deg);}
+.model-body{display:none;padding:0 24px 24px;border-top:1px solid var(--border);}
+.model-card.open .model-body{display:block;}
+.model-desc{font-size:14px;color:var(--text2);line-height:1.9;margin-top:16px;}
+.model-steps{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.step{display:flex;gap:12px;align-items:flex-start;}
+.step-dot{width:22px;height:22px;border-radius:6px;background:rgba(255,213,79,0.15);color:var(--c1);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.step-text{font-size:13px;color:var(--text2);line-height:1.7;}
+.step-text strong{color:var(--text);display:block;margin-bottom:2px;}
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+.cat-nav a{font-size:12px;padding:6px 14px;border-radius:20px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);text-decoration:none;transition:all 0.2s;}
+.cat-nav a:hover,.cat-nav a.active{background:rgba(255,213,79,0.1);border-color:rgba(255,213,79,0.3);color:var(--c1);}
+footer{border-top:1px solid var(--border);padding:30px;text-align:center;color:var(--text3);font-size:12px;}
+footer a{color:var(--accent2);text-decoration:none;}
+@media(max-width:600px){.hero{padding:30px 20px;}.main{padding:30px 16px;}.hero h1{font-size:26px;}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="nav-row">
+    <a href="../index.html" class="back">主页</a><span class="sep">/</span>
+    <a href="index.html" class="back">120思维模型</a><span class="sep">/</span>
+    <span class="cat-badge">💰 财富管理</span>
+  </div>
+  <div class="hero-icon">💰</div>
+  <h1><em>财富管理</em>模型</h1>
+  <p class="hero-sub">建立正确的财富观与投资思维，让金钱为你工作而非你为金钱工作</p>
+  <div class="hero-meta"><span>共 <strong>10</strong> 个模型</span><span>编号 <strong>091–100</strong></span></div>
+</div>
+<div class="main">
+  <div class="cat-nav">
+    <a href="cat-01.html">🎓 学习</a>
+    <a href="cat-02.html">🧠 认知</a>
+    <a href="cat-03.html">💛 情绪</a>
+    <a href="cat-04.html">✅ 习惯</a>
+    <a href="cat-05.html">🎯 目标</a>
+    <a href="cat-06.html">🔄 复盘</a>
+    <a href="cat-07.html">💬 沟通</a>
+    <a href="cat-08.html">🤝 人际</a>
+    <a href="cat-09.html" class="active">💰 财富</a>
+    <a href="cat-10.html">🚀 商业</a>
+  </div>
+
+  <div class="model-card" id="m091">
+    <div class="model-header" onclick="toggle('m091')">
+      <span class="model-num">091</span>
+      <span class="model-title">ESB财富四象限</span>
+      <span class="model-tag">财富思维</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">罗伯特·清崎在《富爸爸穷爸爸》中提出。E（雇员）、S（自雇）、B（企业主）、I（投资者）四个象限，左侧用时间换钱，右侧让钱和系统为你工作。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>识别当前象限</strong>你主要在哪个象限获取收入</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>理解象限差异</strong>不同象限的税务、时间自由度、风险差异</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>制定迁移路径</strong>如何逐步向B和I象限迁移，建立被动收入</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m092">
+    <div class="model-header" onclick="toggle('m092')">
+      <span class="model-num">092</span>
+      <span class="model-title">财富积累模型</span>
+      <span class="model-tag">财富增长</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">收入-支出=储蓄，储蓄×投资回报=财富增长。财富积累的三个杠杆：提高收入、降低支出、提升投资回报率。三者同时优化，财富增长最快。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>提高收入</strong>提升技能、增加收入来源（副业、投资）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>控制支出</strong>区分需要和想要，减少无效消费</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>投资增值</strong>让储蓄产生复利回报，而非放在银行贬值</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m093">
+    <div class="model-header" onclick="toggle('m093')">
+      <span class="model-num">093</span>
+      <span class="model-title">爱钱赚钱公式</span>
+      <span class="model-tag">财富创造</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">财富=价值创造×传播范围×时间复利。创造真实价值是基础，扩大传播范围是杠杆，时间复利是加速器。三者相乘，财富呈指数增长。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>创造价值</strong>解决真实问题，提供真实价值（不是零和游戏）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>扩大传播</strong>通过互联网、品牌、团队扩大影响范围</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>时间复利</strong>尽早开始，让时间成为你的朋友</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m094">
+    <div class="model-header" onclick="toggle('m094')">
+      <span class="model-num">094</span>
+      <span class="model-title">大富翁思维</span>
+      <span class="model-tag">资产思维</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">资产思维：让钱为你工作的底层逻辑。区分资产（能产生现金流的东西）和负债（消耗现金流的东西），持续积累资产，减少负债。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>区分资产和负债</strong>你的房子是资产还是负债？（取决于是否产生现金流）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>积累生产性资产</strong>股票、债券、出租房产、版权、业务</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>减少消耗性负债</strong>减少不必要的贷款和消费性支出</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m095">
+    <div class="model-header" onclick="toggle('m095')">
+      <span class="model-num">095</span>
+      <span class="model-title">五大财富法则</span>
+      <span class="model-tag">财富原则</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">积累财富的五个核心原则：先付给自己（储蓄优先）、让钱工作（投资）、保护财富（保险和分散）、增加知识（财商教育）、耐心等待（长期主义）。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>先付给自己</strong>收入到账后立即储蓄（至少10%），再消费剩余</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>让钱工作</strong>将储蓄投入能产生回报的资产，而非消费</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>保护财富</strong>分散投资，购买必要保险，建立应急基金</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m096">
+    <div class="model-header" onclick="toggle('m096')">
+      <span class="model-num">096</span>
+      <span class="model-title">复利公式</span>
+      <span class="model-tag">时间价值</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">FV=PV×(1+i)^n，时间的力量。复利是世界第八大奇迹，越早开始投资，复利效果越惊人。20岁开始投资和30岁开始，40年后的差距可能超过10倍。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>尽早开始</strong>时间是复利最重要的变量，今天就开始</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>保持一致</strong>定期定额投资，不要因市场波动中断</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>提高回报率</strong>每提高1%的年化回报，长期差距巨大</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m097">
+    <div class="model-header" onclick="toggle('m097')">
+      <span class="model-num">097</span>
+      <span class="model-title">大富翁财富公式</span>
+      <span class="model-tag">净资产</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">净资产=资产-负债，这是财富管理的基础公式。真正的财富不是收入，而是净资产。高收入但高负债的人，财富可能为负。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>计算净资产</strong>列出所有资产和负债，计算差值（每年更新）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>设定净资产目标</strong>每年净资产增长多少（建议至少10%）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>优化资产负债表</strong>增加资产，减少高息负债</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m098">
+    <div class="model-header" onclick="toggle('m098')">
+      <span class="model-num">098</span>
+      <span class="model-title">财富自由路径</span>
+      <span class="model-tag">财务自由</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">被动收入>生活支出=财务自由。财务自由不是有多少钱，而是被动收入能否覆盖生活支出。计算你的财务自由数字，制定实现路径。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>计算年支出</strong>你每年需要多少钱维持理想生活</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>计算财务自由数字</strong>年支出×25（基于4%安全提取率）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>建立被动收入</strong>股息、租金、版税、利息、业务分红</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m099">
+    <div class="model-header" onclick="toggle('m099')">
+      <span class="model-num">099</span>
+      <span class="model-title">资产配置模型</span>
+      <span class="model-tag">投资组合</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">分散投资降低风险的组合管理策略。不同资产类别的相关性不同，合理配置可以在相同风险下获得更高回报，或在相同回报下承担更低风险。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>确定风险承受能力</strong>年龄、收入稳定性、心理承受力</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>制定配置比例</strong>股票/债券/现金/另类资产的比例</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>定期再平衡</strong>每年调整回目标比例，卖高买低</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m100">
+    <div class="model-header" onclick="toggle('m100')">
+      <span class="model-num">100</span>
+      <span class="model-title">松池水晶流动法</span>
+      <span class="model-tag">财富流动</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">财富流动与积累的东方智慧模型。财富如水，需要流动才有生命力。既要有蓄水池（储蓄），也要有活水（投资和创造），还要有出水口（消费和给予）。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>建立蓄水池</strong>稳定的储蓄习惯，建立财务安全感</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>保持活水流入</strong>持续创造价值和多元收入来源</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>智慧的出水口</strong>消费创造价值，给予产生回报和意义</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer><p><a href="cat-08.html">← 人际管理</a> &nbsp;·&nbsp; <a href="index.html">返回总览</a> &nbsp;·&nbsp; <a href="cat-10.html">商业管理 →</a></p></footer>
+<script>function toggle(id){document.getElementById(id).classList.toggle('open');}</script>
+</body>
+</html>

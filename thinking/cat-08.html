@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人际管理 · 思维模型</title>
+<style>
+:root{--bg:#0f0f13;--bg2:#16161d;--bg3:#1e1e28;--border:#2a2a38;--border2:#3a3a50;--text:#e8e8f0;--text2:#9090b0;--text3:#5a5a78;--accent:#7c6af7;--accent2:#a594f9;--c1:#b0a0f8;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+.hero{background:linear-gradient(160deg,#16161d 0%,#0f0f13 100%);padding:50px 40px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(176,160,248,0.12) 0%,transparent 70%);}
+.nav-row{display:flex;align-items:center;gap:10px;margin-bottom:24px;position:relative;flex-wrap:wrap;}
+.back{color:var(--text3);text-decoration:none;font-size:12px;letter-spacing:1px;transition:color 0.2s;}.back:hover{color:var(--accent2);}
+.sep{color:var(--text3);font-size:12px;}
+.cat-badge{font-size:11px;background:rgba(176,160,248,0.15);color:var(--c1);border:1px solid rgba(176,160,248,0.3);padding:3px 10px;border-radius:10px;}
+.hero-icon{font-size:44px;margin-bottom:14px;position:relative;}
+.hero h1{font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:8px;position:relative;}
+.hero h1 em{color:var(--c1);font-style:normal;}
+.hero-sub{font-size:14px;color:var(--text2);position:relative;}
+.hero-meta{display:flex;gap:20px;margin-top:16px;position:relative;}
+.hero-meta span{font-size:12px;color:var(--text3);}.hero-meta strong{color:var(--text2);}
+.main{max-width:900px;margin:0 auto;padding:50px 30px;}
+.model-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;margin-bottom:14px;overflow:hidden;transition:border-color 0.2s;}
+.model-card.open{border-color:var(--border2);}
+.model-header{display:flex;align-items:center;gap:14px;padding:20px 24px;cursor:pointer;user-select:none;}
+.model-header:hover{background:rgba(255,255,255,0.02);}
+.model-num{font-size:11px;color:var(--text3);min-width:28px;flex-shrink:0;}
+.model-title{font-size:16px;font-weight:600;flex:1;}
+.model-tag{font-size:11px;padding:2px 10px;border-radius:10px;background:rgba(176,160,248,0.1);color:var(--c1);border:1px solid rgba(176,160,248,0.2);white-space:nowrap;}
+.model-arrow{color:var(--text3);font-size:12px;transition:transform 0.25s;flex-shrink:0;}
+.model-card.open .model-arrow{transform:rotate(180deg);}
+.model-body{display:none;padding:0 24px 24px;border-top:1px solid var(--border);}
+.model-card.open .model-body{display:block;}
+.model-desc{font-size:14px;color:var(--text2);line-height:1.9;margin-top:16px;}
+.model-steps{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.step{display:flex;gap:12px;align-items:flex-start;}
+.step-dot{width:22px;height:22px;border-radius:6px;background:rgba(176,160,248,0.15);color:var(--c1);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.step-text{font-size:13px;color:var(--text2);line-height:1.7;}
+.step-text strong{color:var(--text);display:block;margin-bottom:2px;}
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+.cat-nav a{font-size:12px;padding:6px 14px;border-radius:20px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);text-decoration:none;transition:all 0.2s;}
+.cat-nav a:hover,.cat-nav a.active{background:rgba(176,160,248,0.1);border-color:rgba(176,160,248,0.3);color:var(--c1);}
+footer{border-top:1px solid var(--border);padding:30px;text-align:center;color:var(--text3);font-size:12px;}
+footer a{color:var(--accent2);text-decoration:none;}
+@media(max-width:600px){.hero{padding:30px 20px;}.main{padding:30px 16px;}.hero h1{font-size:26px;}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="nav-row">
+    <a href="../index.html" class="back">主页</a><span class="sep">/</span>
+    <a href="index.html" class="back">120思维模型</a><span class="sep">/</span>
+    <span class="cat-badge">🤝 人际管理</span>
+  </div>
+  <div class="hero-icon">🤝</div>
+  <h1><em>人际管理</em>模型</h1>
+  <p class="hero-sub">构建高质量人际网络，理解关系的本质，让人际资本成为人生杠杆</p>
+  <div class="hero-meta"><span>共 <strong>10</strong> 个模型</span><span>编号 <strong>081–090</strong></span></div>
+</div>
+<div class="main">
+  <div class="cat-nav">
+    <a href="cat-01.html">🎓 学习</a>
+    <a href="cat-02.html">🧠 认知</a>
+    <a href="cat-03.html">💛 情绪</a>
+    <a href="cat-04.html">✅ 习惯</a>
+    <a href="cat-05.html">🎯 目标</a>
+    <a href="cat-06.html">🔄 复盘</a>
+    <a href="cat-07.html">💬 沟通</a>
+    <a href="cat-08.html" class="active">🤝 人际</a>
+    <a href="cat-09.html">💰 财富</a>
+    <a href="cat-10.html">🚀 商业</a>
+  </div>
+
+  <div class="model-card" id="m081">
+    <div class="model-header" onclick="toggle('m081')">
+      <span class="model-num">081</span>
+      <span class="model-title">乔哈里窗口</span>
+      <span class="model-tag">自我认知</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">由约瑟夫·卢夫特和哈里·英汉姆提出。将自我认知分为四个象限：开放区、盲点区、隐藏区、未知区。扩大开放区是建立深度关系的关键。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>扩大开放区</strong>主动分享自己，减少隐藏区（真实表达）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>缩小盲点区</strong>主动寻求反馈，了解他人眼中的自己</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>探索未知区</strong>通过新体验和深度反思发现未知的自我</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m082">
+    <div class="model-header" onclick="toggle('m082')">
+      <span class="model-num">082</span>
+      <span class="model-title">人际交往黄金法则</span>
+      <span class="model-tag">基本原则</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">像希望别人对待你那样对待别人。这是人际交往最基本的原则，但真正做到需要持续的同理心练习和自我克制。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>换位思考</strong>在行动前想想对方的感受和需求</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>主动给予</strong>不等对方开口，主动提供帮助和价值</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>真诚表达</strong>说真心话，不说违心的话，建立真实连接</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m083">
+    <div class="model-header" onclick="toggle('m083')">
+      <span class="model-num">083</span>
+      <span class="model-title">NLP人际关系</span>
+      <span class="model-tag">影响力</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">神经语言程序学的人际影响技术。通过镜像、建立亲和感、理解对方的价值观层次，建立深度连接，提升人际影响力。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>镜像技术</strong>自然地模仿对方的姿势、语速和用词</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>价值观对齐</strong>了解对方最重视什么，在这个层面建立共鸣</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>语言模式</strong>使用对方习惯的表达方式和框架</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m084">
+    <div class="model-header" onclick="toggle('m084')">
+      <span class="model-num">084</span>
+      <span class="model-title">爱的五种语言</span>
+      <span class="model-tag">关系维护</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">盖瑞·查普曼提出。每个人表达和接受爱的方式不同：肯定言辞、服务行为、接受礼物、精心时刻、身体接触。用对方的语言表达爱。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>识别自己的爱之语</strong>什么让你感到被爱和被重视</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>了解对方的爱之语</strong>观察对方如何表达爱，他们最渴望什么</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>用对方的语言表达</strong>用他们能接收的方式给予爱和关心</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m085">
+    <div class="model-header" onclick="toggle('m085')">
+      <span class="model-num">085</span>
+      <span class="model-title">人际关系公式</span>
+      <span class="model-tag">信任建立</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">信任方程式：信任=（可信度×可靠性×亲密感）/自我导向。提升信任的关键是降低自我导向（减少以自我为中心），增加亲密感。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>提升可信度</strong>展示专业能力和诚实，言行一致</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>提升可靠性</strong>说到做到，承诺的事情一定完成</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>降低自我导向</strong>真正关注对方的需求而非自己的利益</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m086">
+    <div class="model-header" onclick="toggle('m086')">
+      <span class="model-num">086</span>
+      <span class="model-title">六度分隔理论</span>
+      <span class="model-tag">社交网络</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">任意两个人之间最多通过六个中间人相连。你的人际网络比你想象的更广，关键是如何激活弱连接（认识但不熟悉的人）。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>维护弱连接</strong>定期与不常联系的人保持联系（每季度一次）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>成为连接者</strong>主动介绍不同圈子的人相互认识</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>扩展圈子</strong>主动参与不同领域的社群和活动</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m087">
+    <div class="model-header" onclick="toggle('m087')">
+      <span class="model-num">087</span>
+      <span class="model-title">社交资本理论</span>
+      <span class="model-tag">人际资本</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">人际网络作为资本的积累与运用。社交资本包括桥接资本（连接不同群体）和粘合资本（深化同一群体内的关系）。两者都重要。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>建立桥接资本</strong>主动连接不同领域、不同背景的人</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>深化粘合资本</strong>与核心圈子建立深度信任和互助关系</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>持续投入</strong>人际关系需要持续的时间和情感投入</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m088">
+    <div class="model-header" onclick="toggle('m088')">
+      <span class="model-num">088</span>
+      <span class="model-title">影响力六法则</span>
+      <span class="model-tag">说服原理</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">罗伯特·西奥迪尼提出的六大影响力原则：互惠、承诺与一致、社会认同、权威、喜好、稀缺。理解这些原则，既能更有影响力，也能识别被操控。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>互惠</strong>先给予，建立互惠关系（给予有价值的东西）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>社会认同</strong>展示他人的认可和使用（案例、评价）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>稀缺</strong>强调独特性和有限性（限时、限量）</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m089">
+    <div class="model-header" onclick="toggle('m089')">
+      <span class="model-num">089</span>
+      <span class="model-title">人际边界设定</span>
+      <span class="model-tag">健康边界</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">健康人际关系中的边界意识与技巧。清晰的边界不是冷漠，而是对自己和他人的尊重。没有边界的关系最终会让双方都精疲力竭。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>识别边界</strong>什么让你感到不舒服或被侵犯（身体、时间、情感）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>清晰表达</strong>用我陈述句表达边界（我需要...，我不舒服...）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>坚持执行</strong>边界被越过时，温和但坚定地重申</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m090">
+    <div class="model-header" onclick="toggle('m090')">
+      <span class="model-num">090</span>
+      <span class="model-title">人际交往资源流动</span>
+      <span class="model-tag">价值交换</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">人际关系中价值交换与流动规律。健康的关系是双向的价值流动，而非单向索取。理解自己能给予什么价值，是建立高质量关系的基础。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>盘点自己的价值</strong>你能给他人提供什么（知识、资源、情感支持）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>识别对方的需求</strong>对方真正需要什么（显性和隐性需求）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>创造价值交换</strong>找到双方都能受益的合作点和互助方式</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer><p><a href="cat-07.html">← 沟通管理</a> &nbsp;·&nbsp; <a href="index.html">返回总览</a> &nbsp;·&nbsp; <a href="cat-09.html">财富管理 →</a></p></footer>
+<script>function toggle(id){document.getElementById(id).classList.toggle('open');}</script>
+</body>
+</html>

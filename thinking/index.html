@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>120思维模型 · 人生方法论</title>
+<style>
+:root {
+  --bg: #0f0f13;
+  --bg2: #16161d;
+  --bg3: #1e1e28;
+  --border: #2a2a38;
+  --border2: #3a3a50;
+  --text: #e8e8f0;
+  --text2: #9090b0;
+  --text3: #5a5a78;
+  --accent: #7c6af7;
+  --accent2: #a594f9;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+
+.page-header {
+  background: linear-gradient(160deg, #16161d 0%, #1a1428 100%);
+  padding: 50px 40px 40px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.page-header::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(124,106,247,0.12) 0%, transparent 70%);
+}
+.back { display:inline-flex; align-items:center; gap:6px; color:var(--text3); text-decoration:none; font-size:12px; letter-spacing:1px; margin-bottom:20px; transition:color 0.2s; position:relative; }
+.back:hover { color:var(--accent2); }
+.page-header h1 { font-size:36px; font-weight:800; letter-spacing:-1px; margin-bottom:8px; position:relative; }
+.page-header h1 span { color:var(--accent2); }
+.page-header p { font-size:14px; color:var(--text2); position:relative; }
+
+.nav {
+  position:sticky; top:0; z-index:100;
+  background:rgba(15,15,19,0.9); backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:0 30px;
+  display:flex; gap:0; overflow-x:auto;
+}
+.nav a { color:var(--text2); text-decoration:none; padding:13px 14px; font-size:12px; white-space:nowrap; transition:color 0.2s; border-bottom:2px solid transparent; }
+.nav a:hover { color:var(--text); border-bottom-color:var(--accent); }
+
+.main { max-width:1200px; margin:0 auto; padding:50px 30px; }
+
+/* 搜索 */
+.search-bar {
+  display:flex; align-items:center; gap:12px;
+  background:var(--bg2); border:1px solid var(--border);
+  border-radius:12px; padding:12px 18px;
+  margin-bottom:40px;
+}
+.search-bar input {
+  flex:1; background:none; border:none; outline:none;
+  color:var(--text); font-size:14px; font-family:inherit;
+}
+.search-bar input::placeholder { color:var(--text3); }
+.search-icon { color:var(--text3); font-size:16px; }
+.search-count { font-size:12px; color:var(--text3); white-space:nowrap; }
+
+/* 分类区块 */
+.cat-section { margin-bottom:50px; scroll-margin-top:60px; }
+.cat-header {
+  display:flex; align-items:center; gap:14px;
+  margin-bottom:20px; padding-bottom:16px;
+  border-bottom:1px solid var(--border);
+}
+.cat-icon {
+  width:44px; height:44px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; flex-shrink:0;
+}
+.cat-title { font-size:20px; font-weight:700; color:var(--text); }
+.cat-en { font-size:11px; color:var(--text3); letter-spacing:1px; margin-top:2px; }
+.cat-badge {
+  margin-left:auto; font-size:11px; color:var(--text3);
+  background:var(--bg3); border:1px solid var(--border);
+  padding:3px 10px; border-radius:20px;
+}
+
+/* 模型列表 */
+.model-list {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+  gap:10px;
+}
+.model-item {
+  background:var(--bg2); border:1px solid var(--border);
+  border-radius:12px; padding:14px 16px;
+  display:flex; align-items:flex-start; gap:12px;
+  transition:all 0.2s; cursor:pointer;
+  text-decoration:none; color:inherit;
+}
+.model-item:hover {
+  border-color:var(--border2);
+  background:var(--bg3);
+  transform:translateX(3px);
+}
+.model-item.hidden { display:none; }
+.model-num {
+  font-size:11px; color:var(--text3);
+  font-variant-numeric:tabular-nums;
+  min-width:28px; padding-top:2px;
+  flex-shrink:0;
+}
+.model-info { flex:1; }
+.model-name { font-size:14px; font-weight:500; color:var(--text); margin-bottom:3px; }
+.model-desc { font-size:12px; color:var(--text3); line-height:1.5; }
+.model-tag {
+  font-size:10px; padding:2px 8px; border-radius:10px;
+  background:var(--bg3); color:var(--text3);
+  border:1px solid var(--border); white-space:nowrap;
+  margin-top:6px; display:inline-block;
+}
+
+/* 无结果 */
+.no-result { text-align:center; padding:60px; color:var(--text3); font-size:14px; display:none; }
+
+.cat-link {
+  font-size:12px; color:var(--accent2); text-decoration:none;
+  padding:5px 14px; border-radius:20px;
+  border:1px solid rgba(124,106,247,0.3);
+  background:rgba(124,106,247,0.08);
+  transition:all 0.2s; white-space:nowrap; margin-left:10px;
+}
+.cat-link:hover { background:rgba(124,106,247,0.18); border-color:var(--accent2); }
+
+footer { border-top:1px solid var(--border); padding:30px; text-align:center; color:var(--text3); font-size:12px; }
+footer a { color:var(--accent2); text-decoration:none; }
+
+@media(max-width:768px) {
+  .model-list { grid-template-columns:1fr; }
+  .main { padding:30px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <a href="../index.html" class="back">← 返回主页</a>
+  <h1>120 <span>思维模型</span></h1>
+  <p>提升认知必备 · 10大分类 · 持续更新中</p>
+</div>
+
+<nav class="nav">
+  <a href="#learning">🎓 学习</a>
+  <a href="#cognition">🧠 认知</a>
+  <a href="#emotion">💛 情绪</a>
+  <a href="#habit">✅ 习惯</a>
+  <a href="#goal">🎯 目标</a>
+  <a href="#review">🔄 复盘</a>
+  <a href="#communication">💬 沟通</a>
+  <a href="#relationship">🤝 人际</a>
+  <a href="#wealth">💰 财富</a>
+  <a href="#business">🚀 商业</a>
+</nav>
+
+<div class="main">
+
+  <div class="search-bar">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="搜索思维模型名称…" oninput="filterModels(this.value)">
+    <span class="search-count" id="searchCount">共 110 个模型</span>
+  </div>
+
+  <div class="no-result" id="noResult">没有找到匹配的模型</div>
+
+  <!-- ① 学习管理 -->
+  <div class="cat-section" id="learning">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:rgba(91,164,245,0.15);">🎓</div>
+      <div>
+        <div class="cat-title">学习管理</div>
+        <div class="cat-en">Learning Management · 001–010</div>
+      </div>
+      <a href="cat-01.html" class="cat-link">查看详情 →</a>
+    </div>
+    <div class="model-list">
+      <div class="model-item" data-name="费曼学习法"><span class="model-num">001</span><div class="model-info"><div class="model-name">费曼学习法</div><div class="model-desc">用教别人的方式检验自己是否真正理解</div></div></div>
+      <div class="model-item" data-name="创意学习法"><span class="model-num">002</span><div class="model-info"><div class="model-name">创意学习法</div><div class="model-desc">激发创造力与联想力的学习方式</div></div></div>
+      <div class="model-item" data-name="学习金字塔"><span class="model-num">003</span><div class="model-info"><div class="model-name">学习金字塔</div><div class="model-desc">不同学习方式的记忆留存率差异</div></div></div>
+      <div class="model-item" data-name="遗忘曲线记忆法"><span class="model-num">004</span><div class="model-info"><div class="model-name">遗忘曲线记忆法</div><div class="model-desc">艾宾浩斯遗忘曲线与间隔重复</div></div></div>
+      <div class="model-item" data-name="康奈尔笔记法"><span class="model-num">005</span><div class="model-info"><div class="model-name">康奈尔笔记法</div><div class="model-desc">结构化记录与复习的笔记系统</div></div></div>
+      <div class="model-item" data-name="SQ3R阅读法"><span class="model-num">006</span><div class="model-info"><div class="model-name">SQ3R阅读法</div><div class="model-desc">Survey·Question·Read·Recite·Review</div></div></div>
+      <div class="model-item" data-name="西蒙学习法"><span class="model-num">007</span><div class="model-info"><div class="model-name">西蒙学习法</div><div class="model-desc">模块化输入-理解-产出学习路径</div></div></div>
+      <div class="model-item" data-name="五星笔记法"><span class="model-num">008</span><div class="model-info"><div class="model-name">五星笔记法</div><div class="model-desc">五维度结构化笔记整理方法</div></div></div>
+      <div class="model-item" data-name="RIA阅读法"><span class="model-num">009</span><div class="model-info"><div class="model-name">RIA阅读法</div><div class="model-desc">阅读·理解·应用三步拆书法</div></div></div>
+      <div class="model-item" data-name="心流模型思维"><span class="model-num">010</span><div class="model-info"><div class="model-name">心流模型思维</div><div class="model-desc">进入深度专注状态的条件与方法</div></div></div>
+    </div>
+  </div>
+
+  <!-- ② 认知管理 -->
+  <div class="cat-section" id="cognition">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:rgba(165,148,249,0.15);">🧠</div>
+      <div>
+        <div class="cat-title">认知管理</div>
+        <div class="cat-en">Cognitive Management · 011–020</div>
+      </div>
+      <a href="cat-02.html" class="cat-link">查看详情 →</a>
+    </div>
+    <div class="model-list">
+      <div class="model-item" data-name="成长思维模型"><span class="model-num">011</span><div class="model-info"><div class="model-name">成长思维模型</div><div class="model-desc">固定型思维 vs 成长型思维的转换</div></div></div>
+      <div class="model-item" data-name="第一性原理"><span class="model-num">012</span><div class="model-info"><div class="model-name">第一性原理</div><div class="model-desc">从基本事实出发推导结论，打破类比思维</div></div></div>
+      <div class="model-item" data-name="批判性思维"><span class="model-num">013</span><div class="model-info"><div class="model-name">批判性思维</div><div class="model-desc">独立分析、评估信息与论证的能力</div></div></div>
+      <div class="model-item" data-name="黑天鹅思维"><span class="model-num">014</span><div class="model-info"><div class="model-name">黑天鹅思维</div><div class="model-desc">应对极端不可预测事件的认知框架</div></div></div>
+      <div class="model-item" data-name="二八法则"><span class="model-num">015</span><div class="model-info"><div class="model-name">二八法则</div><div class="model-desc">80%的结果来自20%的原因</div></div></div>
+      <div class="model-item" data-name="奥卡姆剃刀"><span class="model-num">016</span><div class="model-info"><div class="model-name">奥卡姆剃刀</div><div class="model-desc">如无必要，勿增实体——简单优先原则</div></div></div>
+      <div class="model-item" data-name="心智模型"><span class="model-num">017</span><div class="model-info"><div class="model-name">心智模型</div><div class="model-desc">理解世界运作方式的内在框架</div></div></div>
+      <div class="model-item" data-name="六顶思考帽"><span class="model-num">018</span><div class="model-info"><div class="model-name">六顶思考帽</div><div class="model-desc">六种视角全面分析问题的思维工具</div></div></div>
+      <div class="model-item" data-name="八层次思维模型"><span class="model-num">019</span><div class="model-info"><div class="model-name">八层次思维模型</div><div class="model-desc">从感知到创造的认知层次体系</div></div></div>
+      <div class="model-item" data-name="逻辑树思维"><span class="model-num">020</span><div class="model-info"><div class="model-name">逻辑树思维</div><div class="model-desc">结构化拆解问题的树状分析法</div></div></div>
+    </div>
+  </div>
+
+  <!-- ③ 情绪管理 -->
+  <div class="cat-section" id="emotion">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:rgba(240,98,146,0.15);">💛</div>
+      <div>
+        <div class="cat-title">情绪管理</div>
+        <div class="cat-en">Emotional Management · 021–030</div>
+      </div>
+      <a href="cat-03.html" class="cat-link">查看详情 →</a>
+    </div>
+    <div class="model-list">
+      <div class="model-item" data-name="情绪ABC理论"><span class="model-num">021</span><div class="model-info"><div class="model-name">情绪ABC理论</div><div class="model-desc">事件-信念-结果的情绪认知模型</div></div></div>
+      <div class="model-item" data-name="情绪颗粒度"><span class="model-num">022</span><div class="model-info"><div class="model-name">情绪颗粒度</div><div class="model-desc">精细化识别和命名情绪的能力</div></div></div>
+      <div class="model-item" data-name="ETA情绪调节"><span class="model-num">023</span><div class="model-info"><div class="model-name">ETA情绪调节</div><div class="model-desc">情绪-思维-行动三角调节框架</div></div></div>
+      <div class="model-item" data-name="ACT六边形"><span class="model-num">024</span><div class="model-info"><div class="model-name">ACT六边形</div><div class="model-desc">接受与承诺疗法的六大核心过程</div></div></div>
+      <div class="model-item" data-name="情绪调节策略"><span class="model-num">025</span><div class="model-info"><div class="model-name">情绪调节策略</div><div class="model-desc">认知重评、表达抑制等调节方法</div></div></div>
+      <div class="model-item" data-name="情绪价值论"><span class="model-num">026</span><div class="model-info"><div class="model-name">情绪价值论</div><div class="model-desc">情绪作为价值载体的认知框架</div></div></div>
+      <div class="model-item" data-name="情绪日记法"><span class="model-num">027</span><div class="model-info"><div class="model-name">情绪日记法</div><div class="model-desc">通过书写觉察和处理情绪的方法</div></div></div>
+      <div class="model-item" data-name="正念减压法"><span class="model-num">028</span><div class="model-info"><div class="model-name">正念减压法</div><div class="model-desc">MBSR正念冥想减压训练体系</div></div></div>
+      <div class="model-item" data-name="情绪急救箱"><span class="model-num">029</span><div class="model-info"><div class="model-name">情绪急救箱</div><div class="model-desc">快速处理负面情绪的工具集合</div></div></div>
+      <div class="model-item" data-name="情绪记忆日记"><span class="model-num">030</span><div class="model-info"><div class="model-name">情绪记忆日记</div><div class="model-desc">记录情绪触发点与模式的日记法</div></div></div>
+    </div>
+  </div>
+
+  <!-- ④ 习惯管理 -->
+  <div class="cat-section" id="habit">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:rgba(86,197,150,0.15);">✅</div>
+      <div>
+        <div class="cat-title">习惯管理</div>
+        <div class="cat-en">Habit Management · 031–040</div>
+      </div>
+      <a href="cat-04.html" class="cat-link">查看详情 →</a>
+    </div>
+    <div class="model-list">
+      <div class="model-item" data-name="习惯行为公式"><span class="model-num">031</span><div class="model-info"><div class="model-name">习惯行为公式</div><div class="model-desc">提示-渴望-反应-奖励的习惯回路</div></div></div>
+      <div class="model-item" data-name="如何上瘾模型"><span class="model-num">032</span><div class="model-info"><div class="model-name">如何上瘾模型</div><div class="model-desc">Hooked钩子模型：触发-行动-奖励-投入</div></div></div>
+      <div class="model-item" data-name="四天习惯法"><span class="model-num">033</span><div class="model-info"><div class="model-name">四天习惯法</div><div class="model-desc">用四天周期快速建立新习惯</div></div></div>
+      <div class="model-item" data-name="天天进步法则"><span class="model-num">034</span><div class="model-info"><div class="model-name">天天进步法则</div><div class="model-desc">每天1%的改进，一年后提升37倍</div></div></div>
+      <div class="model-item" data-name="习惯叠加法"><span class="model-num">035</span><div class="model-info"><div class="model-name">习惯叠加法</div><div class="model-desc">将新习惯附加在已有习惯之后</div></div></div>
+      <div class="model-item" data-name="两分钟法则"><span class="model-num">036</span><div class="model-info"><div class="model-name">两分钟法则</div><div class="model-desc">任何习惯都从两分钟版本开始</div></div></div>
+      <div class="model-item" data-name="环境设计法"><span class="model-num">037</span><div class="model-info"><div class="model-name">环境设计法</div><div class="model-desc">通过改变环境降低好习惯的阻力</div></div></div>
+      <div class="model-item" data-name="习惯追踪法"><span class="model-num">038</span><div class="model-info"><div class="model-name">习惯追踪法</div><div class="model-desc">可视化记录习惯坚持情况</div></div></div>
+      <div class="model-item" data-name="习惯契约法"><span class="model-num">039</span><div class="model-info"><div class="model-name">习惯契约法</div><div class="model-desc">通过承诺与惩罚机制强化习惯</div></div></div>
+      <div class="model-item" data-name="习惯身份认同"><span class="model-num">040</span><div class="model-info"><div class="model-name">习惯身份认同</div><div class="model-desc">从"我想做"到"我就是这样的人"</div></div></div>
+    </div>
+  </div>
+
+  <!-- ⑤ 目标管理 -->
+  <div class="cat-section" id="goal">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:rgba(240,192,96,0.15);">🎯</div>
+      <div>
+        <div class="cat-title">目标管理</div>
+        <div class="cat-en">Goal Management · 041–050</div>
+      </div>
+      <a href="cat-05.html" class="cat-link">查看详情 →</a>
+    </div>
+    <div class="model-list">
+      <div class="model-item" data-name="个人路线图布"><span class="model-num">041</span><div class="model-info"><div class="model-name">个人路线图布</div><div class="model-desc">可视化人生目标与行动路径规划</div></div></div>
+      <div class="model-item" data-name="人生目标清单"><span class="model-num">042</span><div class="model-info"><div class="model-name">人生目标清单</div><div class="model-desc">Bucket List：人生必做事项清单</div></div></div>
+      <div class="model-item" data-name="职业规划计算"><span class="model-num">043</span><div class="model-info"><div class="model-name">职业规划计算</div><div class="model-desc">量化评估职业发展路径的方法</div></div></div>
+      <div class="model-item" data-name="职业规划公式"><span class="model-num">044</span><div class="model-info"><div class="model-name">职业规划公式</div><div class="model-desc">能力×平台×努力的职业成长公式</div></div></div>
+      <div class="model-item" data-name="NLP大脑编程"><span class="model-num">045</span><div class="model-info"><div class="model-name">NLP大脑编程</div><div class="model-desc">神经语言程序学的目标设定技术</div></div></div>
+      <div class="model-item" data-name="OKR目标法"><span class="model-num">046</span><div class="model-info"><div class="model-name">OKR目标法</div><div class="model-desc">目标与关键结果的管理框架</div></div></div>
+      <div class="model-item" data-name="SWOT分析法"><span class="model-num">047</span><div class="model-info"><div class="model-name">SWOT分析法</div><div class="model-desc">优势-劣势-机会-威胁四维分析</div></div></div>
+      <div class="model-item" data-name="人生平衡轮"><span class="model-num">048</span><div class="model-info"><div class="model-name">人生平衡轮</div><div class="model-desc">评估人生各维度满意度的工具</div></div></div>
+      <div class="model-item" data-name="逆向规划法"><span class="model-num">049</span><div class="model-info"><div class="model-name">逆向规划法</div><div class="model-desc">从终点倒推行动路径的规划方式</div></div></div>
+      <div class="model-item" data-name="SMART目标法"><span class="model-num">050</span><div class="model-info"><div class="model-name">SMART目标法</div><div class="model-desc">具体·可量化·可实现·相关·有时限</div></div></div>
+    </div>
+  </div>
+
+  <!-- ⑥ 复盘管理 -->
+  <div class="cat-section" id="review">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:rgba(78,205,196,0.15);">🔄</div>
+      <div>
+        <div class="cat-title">复盘管理</div>
+        <div class="cat-en">Review Management · 051–060</div>
+      </div>
+      <a href="cat-06.html" class="cat-link">查看详情 →</a>
+    </div>
+    <div class="model-list">
+      <div class="model-item" data-name="番茄钟时间管理"><span class="model-num">051</span><div class="model-info"><div class="model-name">番茄钟时间管理</div><div class="model-desc">25分钟专注+5分钟休息的时间管理法</div></div></div>
+      <div class="model-item" data-name="时间四象限"><span class="model-num">052</span><div class="model-info"><div class="model-name">时间四象限</div><div class="model-desc">重要-紧急矩阵的时间优先级管理</div></div></div>
+      <div class="model-item" data-name="GTD工作法"><span class="model-num">053</span><div class="model-info"><div class="model-name">GTD工作法</div><div class="model-desc">Getting Things Done：清空大脑的任务管理</div></div></div>
+      <div class="model-item" data-name="深度工作法"><span class="model-num">054</span><div class="model-info"><div class="model-name">深度工作法</div><div class="model-desc">Cal Newport的无干扰专注工作理论</div></div></div>
+      <div class="model-item" data-name="10/10/10法则"><span class="model-num">055</span><div class="model-info"><div class="model-name">10/10/10法则</div><div class="model-desc">10分钟/10个月/10年后的决策框架</div></div></div>
+      <div class="model-item" data-name="5W2H分析法"><span class="model-num">056</span><div class="model-info"><div class="model-name">5W2H分析法</div><div class="model-desc">What·Why·Who·When·Where·How·How much</div></div></div>
+      <div class="model-item" data-name="STAR复盘法"><span class="model-num">057</span><div class="model-info"><div class="model-name">STAR复盘法</div><div class="model-desc">情境-任务-行动-结果的复盘框架</div></div></div>
+      <div class="model-item" data-name="KPT复盘法"><span class="model-num">058</span><div class="model-info"><div class="model-name">KPT复盘法</div><div class="model-desc">Keep·Problem·Try的敏捷复盘方法</div></div></div>
+      <div class="model-item" data-name="日历式复盘法"><span class="model-num">059</span><div class="model-info"><div class="model-name">日历式复盘法</div><div class="model-desc">以时间轴为线索的系统复盘方式</div></div></div>
+      <div class="model-item" data-name="周期25法则"><span class="model-num">060</span><div class="model-info"><div class="model-name">周期25法则</div><div class="model-desc">25个周期循环迭代的成长方法</div></div></div>
+    </div>
+  </div>
+
+  <!-- ⑦ 沟通管理 (071-080) -->
+  <div class="cat-section" id="communication">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:rgba(240,132,90,0.15);">💬</div>
+      <div>
+        <div class="cat-title">沟通管理</div>
+        <div class="cat-en">Communication Management · 071–080</div>
+      </div>
+      <a href="cat-07.html" class="cat-link">查看详情 →</a>
+    </div>
+    <div class="model-list">
+      <div class="model-item" data-name="沟通漏斗模型"><span class="model-num">071</span><div class="model-info"><div class="model-name">沟通漏斗模型</div><div class="model-desc">信息在传递过程中逐层损耗的规律</div></div></div>
+      <div class="model-item" data-name="沟通四维模型"><span class="model-num">072</span><div class="model-info"><div class="model-name">沟通四维模型</div><div class="model-desc">事实·关系·自我·诉求四维沟通框架</div></div></div>
+      <div class="model-item" data-name="FOSSA模型"><span class="model-num">073</span><div class="model-info"><div class="model-name">FOSSA模型</div><div class="model-desc">聚焦-开放-支持-总结-行动沟通法</div></div></div>
+      <div class="model-item" data-name="PREP表达法"><span class="model-num">074</span><div class="model-info"><div class="model-name">PREP表达法</div><div class="model-desc">观点-理由-例子-观点的结构化表达</div></div></div>
+      <div class="model-item" data-name="非暴力沟通"><span class="model-num">075</span><div class="model-info"><div class="model-name">非暴力沟通</div><div class="model-desc">观察-感受-需要-请求的沟通框架</div></div></div>
+      <div class="model-item" data-name="SCQA表达结构"><span class="model-num">076</span><div class="model-info"><div class="model-name">SCQA表达结构</div><div class="model-desc">情境-冲突-问题-答案的金字塔表达</div></div></div>
+      <div class="model-item" data-name="GROW沟通模型"><span class="model-num">077</span><div class="model-info"><div class="model-name">GROW沟通模型</div><div class="model-desc">目标-现实-选择-意愿的教练对话</div></div></div>
+      <div class="model-item" data-name="积极倾听法"><span class="model-num">078</span><div class="model-info"><div class="model-name">积极倾听法</div><div class="model-desc">全身心投入理解对方的倾听技术</div></div></div>
+      <div class="model-item" data-name="SCRY沟通法则"><span class="model-num">079</span><div class="model-info"><div class="model-name">SCRY沟通法则</div><div class="model-desc">结构化清晰表达的沟通原则</div></div></div>
+      <div class="model-item" data-name="GRD高效沟通"><span class="model-num">080</span><div class="model-info"><div class="model-name">GRD高效沟通</div><div class="model-desc">目标-现实-行动的高效沟通框架</div></div></div>
+    </div>
+  </div>
+
+  <!-- ⑧ 人际管理 (081-090) -->
+  <div class="cat-section" id="relationship">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:rgba(176,122,240,0.15);">🤝</div>
+      <div>
+        <div class="cat-title">人际管理</div>
+        <div class="cat-en">Relationship Management · 081–090</div>
+      </div>
+      <a href="cat-08.html" class="cat-link">查看详情 →</a>
+    </div>
+    <div class="model-list">
+      <div class="model-item" data-name="乔哈里窗口"><span class="model-num">081</span><div class="model-info"><div class="model-name">乔哈里窗口</div><div class="model-desc">自我认知与他人认知的四象限模型</div></div></div>
+      <div class="model-item" data-name="人际交往黄金法则"><span class="model-num">082</span><div class="model-info"><div class="model-name">人际交往黄金法则</div><div class="model-desc">像希望别人对待你那样对待别人</div></div></div>
+      <div class="model-item" data-name="NLP人际关系"><span class="model-num">083</span><div class="model-info"><div class="model-name">NLP人际关系</div><div class="model-desc">神经语言程序学的人际影响技术</div></div></div>
+      <div class="model-item" data-name="爱的五种语言"><span class="model-num">084</span><div class="model-info"><div class="model-name">爱的五种语言</div><div class="model-desc">肯定言辞·服务行为·礼物·陪伴·肢体接触</div></div></div>
+      <div class="model-item" data-name="人际关系公式"><span class="model-num">085</span><div class="model-info"><div class="model-name">人际关系公式</div><div class="model-desc">信任=可信度×可靠性×亲密感/自我导向</div></div></div>
+      <div class="model-item" data-name="六度分隔理论"><span class="model-num">086</span><div class="model-info"><div class="model-name">六度分隔理论</div><div class="model-desc">任意两人之间最多六个中间人相连</div></div></div>
+      <div class="model-item" data-name="社交资本理论"><span class="model-num">087</span><div class="model-info"><div class="model-name">社交资本理论</div><div class="model-desc">人际网络作为资本的积累与运用</div></div></div>
+      <div class="model-item" data-name="影响力六法则"><span class="model-num">088</span><div class="model-info"><div class="model-name">影响力六法则</div><div class="model-desc">互惠·承诺·社会认同·权威·喜好·稀缺</div></div></div>
+      <div class="model-item" data-name="人际边界设定"><span class="model-num">089</span><div class="model-info"><div class="model-name">人际边界设定</div><div class="model-desc">健康人际关系中的边界意识与技巧</div></div></div>
+      <div class="model-item" data-name="人际交往资源流动"><span class="model-num">090</span><div class="model-info"><div class="model-name">人际交往资源流动</div><div class="model-desc">人际关系中价值交换与流动规律</div></div></div>
+    </div>
+  </div>
+
+  <!-- ⑨ 财富管理 (091-100) -->
+  <div class="cat-section" id="wealth">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:rgba(240,192,96,0.12);">💰</div>
+      <div>
+        <div class="cat-title">财富管理</div>
+        <div class="cat-en">Wealth Management · 091–100</div>
+      </div>
+      <a href="cat-09.html" class="cat-link">查看详情 →</a>
+    </div>
+    <div class="model-list">
+      <div class="model-item" data-name="ESB财富四象限"><span class="model-num">091</span><div class="model-info"><div class="model-name">ESB财富四象限</div><div class="model-desc">雇员·自雇·企业主·投资者四象限</div></div></div>
+      <div class="model-item" data-name="财富积累模型"><span class="model-num">092</span><div class="model-info"><div class="model-name">财富积累模型</div><div class="model-desc">收入-支出-储蓄-投资的财富增长路径</div></div></div>
+      <div class="model-item" data-name="爱钱赚钱公式"><span class="model-num">093</span><div class="model-info"><div class="model-name">爱钱赚钱公式</div><div class="model-desc">财富=价值创造×传播范围×时间复利</div></div></div>
+      <div class="model-item" data-name="大富翁思维"><span class="model-num">094</span><div class="model-info"><div class="model-name">大富翁思维</div><div class="model-desc">资产思维：让钱为你工作的底层逻辑</div></div></div>
+      <div class="model-item" data-name="五大财富法则"><span class="model-num">095</span><div class="model-info"><div class="model-name">五大财富法则</div><div class="model-desc">积累财富的五个核心原则与方法</div></div></div>
+      <div class="model-item" data-name="复利公式"><span class="model-num">096</span><div class="model-info"><div class="model-name">复利公式</div><div class="model-desc">FV=PV×(1+i)^n 时间的力量</div></div></div>
+      <div class="model-item" data-name="大富翁财富公式"><span class="model-num">097</span><div class="model-info"><div class="model-name">大富翁财富公式</div><div class="model-desc">净资产=资产-负债的财富管理基础</div></div></div>
+      <div class="model-item" data-name="财富自由路径"><span class="model-num">098</span><div class="model-info"><div class="model-name">财富自由路径</div><div class="model-desc">被动收入>生活支出的财务自由模型</div></div></div>
+      <div class="model-item" data-name="资产配置模型"><span class="model-num">099</span><div class="model-info"><div class="model-name">资产配置模型</div><div class="model-desc">分散投资降低风险的组合管理策略</div></div></div>
+      <div class="model-item" data-name="松池水晶流动法"><span class="model-num">100</span><div class="model-info"><div class="model-name">松池水晶流动法</div><div class="model-desc">财富流动与积累的东方智慧模型</div></div></div>
+    </div>
+  </div>
+
+  <!-- ⑩ 商业管理 (101-110) -->
+  <div class="cat-section" id="business">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:rgba(240,112,112,0.15);">🚀</div>
+      <div>
+        <div class="cat-title">商业管理</div>
+        <div class="cat-en">Business Management · 101–110</div>
+      </div>
+      <a href="cat-10.html" class="cat-link">查看详情 →</a>
+    </div>
+    <div class="model-list">
+      <div class="model-item" data-name="人际协议模型"><span class="model-num">101</span><div class="model-info"><div class="model-name">人际协议模型</div><div class="model-desc">商业关系中的协议与信任建立机制</div></div></div>
+      <div class="model-item" data-name="商业模式画布"><span class="model-num">102</span><div class="model-info"><div class="model-name">商业模式画布</div><div class="model-desc">九大模块描述商业模式的可视化工具</div></div></div>
+      <div class="model-item" data-name="精益创业模型"><span class="model-num">103</span><div class="model-info"><div class="model-name">精益创业模型</div><div class="model-desc">构建-测量-学习的快速迭代创业方法</div></div></div>
+      <div class="model-item" data-name="MVP模型"><span class="model-num">104</span><div class="model-info"><div class="model-name">MVP模型</div><div class="model-desc">最小可行产品：用最小成本验证假设</div></div></div>
+      <div class="model-item" data-name="用户增长模型"><span class="model-num">105</span><div class="model-info"><div class="model-name">用户增长模型</div><div class="model-desc">获取-激活-留存-变现-推荐增长框架</div></div></div>
+      <div class="model-item" data-name="PDCA循环"><span class="model-num">106</span><div class="model-info"><div class="model-name">PDCA循环</div><div class="model-desc">计划-执行-检查-改进的持续改善循环</div></div></div>
+      <div class="model-item" data-name="API增长模型"><span class="model-num">107</span><div class="model-info"><div class="model-name">API增长模型</div><div class="model-desc">获取-产品-影响力的增长飞轮模型</div></div></div>
+      <div class="model-item" data-name="波特五力模型"><span class="model-num">108</span><div class="model-info"><div class="model-name">波特五力模型</div><div class="model-desc">分析行业竞争格局的五力框架</div></div></div>
+      <div class="model-item" data-name="人才体系架构"><span class="model-num">109</span><div class="model-info"><div class="model-name">人才体系架构</div><div class="model-desc">组织人才梯队建设与管理框架</div></div></div>
+      <div class="model-item" data-name="人才体系架构模型"><span class="model-num">110</span><div class="model-info"><div class="model-name">人才体系架构模型</div><div class="model-desc">个人能力与组织需求匹配的系统模型</div></div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="../index.html">← 返回主页</a> &nbsp;·&nbsp; 人生方法论知识库 &nbsp;·&nbsp; 持续更新中</p>
+</footer>
+
+<script>
+function filterModels(query) {
+  const q = query.trim().toLowerCase();
+  const items = document.querySelectorAll('.model-item');
+  let count = 0;
+  items.forEach(item => {
+    const name = item.dataset.name || '';
+    const text = item.innerText;
+    const match = !q || name.toLowerCase().includes(q) || text.toLowerCase().includes(q);
+    item.classList.toggle('hidden', !match);
+    if (match) count++;
+  });
+  document.getElementById('searchCount').textContent = q ? `找到 ${count} 个` : `共 110 个模型`;
+  document.getElementById('noResult').style.display = (count === 0 && q) ? 'block' : 'none';
+  // 隐藏空分类
+  document.querySelectorAll('.cat-section').forEach(sec => {
+    const visible = sec.querySelectorAll('.model-item:not(.hidden)').length;
+    sec.style.display = visible === 0 && q ? 'none' : '';
+  });
+}
+</script>
+</body>
+</html>

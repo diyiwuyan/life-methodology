@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8大学习模型详解 · 成长疗愈能量站</title>
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #faf7f2;
+    --parchment: #ede5d0;
+    --tan: #c8b89a;
+    --brown: #8b6f47;
+    --dark-brown: #5c4a2a;
+    --rust: #b5622a;
+    --gold: #c9a84c;
+    --dusty-rose: #c4907a;
+    --sage: #7a8c6e;
+    --text-dark: #3d2e1a;
+    --text-mid: #6b5535;
+    --text-light: #9a8060;
+    --border: #d4c4a8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Serif SC', 'STSong', 'SimSun', Georgia, serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.8;
+  }
+
+  /* 顶部 */
+  .page-header {
+    background: linear-gradient(160deg, #e8dfc8, #c8b48a);
+    padding: 40px;
+    text-align: center;
+    border-bottom: 2px solid var(--tan);
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--brown);
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Noto Sans SC', sans-serif;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .back-link:hover { opacity: 1; }
+  .page-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--dark-brown);
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+  }
+  .page-header p {
+    font-size: 13px;
+    color: var(--text-mid);
+    font-family: 'Noto Sans SC', sans-serif;
+    letter-spacing: 2px;
+  }
+
+  /* 导航 */
+  .nav {
+    background: var(--dark-brown);
+    padding: 0 30px;
+    display: flex;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+  .nav a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    padding: 12px 16px;
+    font-size: 12px;
+    font-family: 'Noto Sans SC', sans-serif;
+    white-space: nowrap;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+  .nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* 主内容 */
+  .main { max-width: 900px; margin: 0 auto; padding: 50px 30px; }
+
+  /* 模型卡片 */
+  .model-section {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    margin-bottom: 32px;
+    scroll-margin-top: 60px;
+  }
+
+  .model-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .model-num-badge {
+    background: var(--dark-brown);
+    color: var(--cream);
+    font-size: 11px;
+    font-family: 'Noto Sans SC', sans-serif;
+    letter-spacing: 2px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+  .model-header-text { flex: 1; }
+  .model-big-icon { font-size: 48px; flex-shrink: 0; }
+  .model-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--dark-brown);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .model-title-en {
+    font-size: 13px;
+    color: var(--text-light);
+    font-family: 'Noto Sans SC', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  /* 核心引言 */
+  .core-quote {
+    background: linear-gradient(135deg, #f0e8d8, #e8dcc8);
+    border-left: 4px solid var(--rust);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    font-size: 15px;
+    color: var(--text-dark);
+    line-height: 2;
+    font-style: italic;
+  }
+  .core-quote strong { color: var(--rust); font-style: normal; }
+
+  /* 内容区块 */
+  .content-block { margin-bottom: 24px; }
+  .content-block h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark-brown);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .content-block h3::before {
+    content: '';
+    display: inline-block;
+    width: 4px; height: 16px;
+    background: var(--rust);
+    border-radius: 2px;
+  }
+  .content-block p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 2;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+
+  /* 步骤列表 */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--cream);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .step-num {
+    width: 28px; height: 28px;
+    background: var(--dark-brown);
+    color: var(--cream);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-family: 'Noto Sans SC', sans-serif;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark-brown);
+    margin-bottom: 3px;
+  }
+  .step-desc {
+    font-size: 12px;
+    color: var(--text-light);
+    font-family: 'Noto Sans SC', sans-serif;
+    line-height: 1.7;
+  }
+
+  /* 层级图 */
+  .pyramid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin: 16px 0;
+  }
+  .pyramid-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-family: 'Noto Sans SC', sans-serif;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: transform 0.2s;
+  }
+  .pyramid-row:hover { transform: scaleX(1.02); }
+  .pyramid-row span {
+    font-size: 11px;
+    opacity: 0.8;
+    margin-left: 8px;
+  }
+
+  /* 标签组 */
+  .tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .tag {
+    background: var(--parchment);
+    color: var(--brown);
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-family: 'Noto Sans SC', sans-serif;
+    border: 1px solid var(--border);
+  }
+  .tag.highlight {
+    background: var(--rust);
+    color: white;
+    border-color: var(--rust);
+  }
+
+  /* 对比框 */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .compare-box {
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-family: 'Noto Sans SC', sans-serif;
+    line-height: 1.8;
+  }
+  .compare-box.bad {
+    background: #fdf0ec;
+    border: 1px solid #e8c4b8;
+    color: #8b4a3a;
+  }
+  .compare-box.good {
+    background: #edf5ec;
+    border: 1px solid #b8d8b4;
+    color: #3a6b3a;
+  }
+  .compare-box h4 {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+
+  /* 圆圈图 */
+  .zone-diagram {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin: 20px 0;
+    position: relative;
+  }
+  .zone {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .zone-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .zone-desc { font-size: 11px; opacity: 0.8; }
+
+  /* 流程箭头 */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+  .flow-item {
+    background: var(--parchment);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-family: 'Noto Sans SC', sans-serif;
+    color: var(--text-dark);
+    text-align: center;
+    min-width: 80px;
+  }
+  .flow-arrow {
+    color: var(--rust);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  /* 页脚 */
+  footer {
+    background: var(--dark-brown);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    font-family: 'Noto Sans SC', sans-serif;
+    letter-spacing: 2px;
+  }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 768px) {
+    .model-header { flex-direction: column; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .main { padding: 24px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <a href="index.html" class="back-link">← 返回知识库首页</a>
+  <h1>8大卷王学习模型</h1>
+  <p>8 High-Cognition Learning Models · 帮你打造终身学习力</p>
+</div>
+
+<nav class="nav">
+  <a href="#pyramid">01 学习金字塔</a>
+  <a href="#feynman">02 费曼学习法</a>
+  <a href="#deliberate">03 刻意练习</a>
+  <a href="#goal">04 目标学习法</a>
+  <a href="#sq3r">05 SQ3R阅读法</a>
+  <a href="#zone">06 学习区理论</a>
+  <a href="#simon">07 西蒙学习法</a>
+  <a href="#bloom">08 布鲁姆认知层级</a>
+</nav>
+
+<div class="main">
+
+  <!-- MODEL 01 学习金字塔 -->
+  <div class="model-section" id="pyramid">
+    <div class="model-header">
+      <div class="model-big-icon">🔺</div>
+      <div class="model-header-text">
+        <div class="model-num-badge">MODEL 01</div>
+        <div style="height:8px"></div>
+        <div class="model-title">学习金字塔理论</div>
+        <div class="model-title-en">Learning Pyramid / Cone of Experience</div>
+      </div>
+    </div>
+
+    <div class="core-quote">
+      别只"看"，最深记忆来自<strong>"教别人"</strong>。听讲仅能记住5%，而"讲授别人"能保留高达90%。学习方式不同，效果天差地别。
+    </div>
+
+    <div class="content-block">
+      <h3>记忆留存率金字塔</h3>
+      <div class="pyramid">
+        <div class="pyramid-row" style="width:120px;background:#8b4a3a;">讲授别人 <span>90%</span></div>
+        <div class="pyramid-row" style="width:160px;background:#a05a40;">实践操作 <span>75%</span></div>
+        <div class="pyramid-row" style="width:200px;background:#b56a48;">小组讨论 <span>50%</span></div>
+        <div class="pyramid-row" style="width:240px;background:#c47a50;">演示示范 <span>30%</span></div>
+        <div class="pyramid-row" style="width:280px;background:#c9a84c;">阅读文字 <span>10%</span></div>
+        <div class="pyramid-row" style="width:320px;background:#b8a878;">听音频/看图 <span>5-10%</span></div>
+        <div class="pyramid-row" style="width:360px;background:#a8a090;">听讲 <span>5%</span></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>如何运用</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">学完立刻输出</div>
+            <div class="step-desc">学完一个知识点，立刻用自己的话写下来或说出来，哪怕只有几句话。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">找人讲解</div>
+            <div class="step-desc">找朋友、同学或家人，把你学到的东西讲给他们听，讲不清楚的地方就是你的知识盲点。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">写作/演示</div>
+            <div class="step-desc">写博客、做笔记、制作思维导图，或者录制视频讲解，都是高效的主动学习方式。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL 02 费曼学习法 -->
+  <div class="model-section" id="feynman">
+    <div class="model-header">
+      <div class="model-big-icon">💡</div>
+      <div class="model-header-text">
+        <div class="model-num-badge">MODEL 02</div>
+        <div style="height:8px"></div>
+        <div class="model-title">费曼学习法</div>
+        <div class="model-title-en">Feynman Technique</div>
+      </div>
+    </div>
+
+    <div class="core-quote">
+      "你无法用简单的话讲清楚的知识，你并没有真正理解。"——<strong>费曼学习法的核心</strong>是：把学到的知识用自己的话教给别人，比如讲述、比喻、复述等方式，你能暴露自己的知识盲点，并不断强化理解。
+    </div>
+
+    <div class="content-block">
+      <h3>四步操作法</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">选择概念</div>
+            <div class="step-desc">选一个你想学习或已经学过的概念，写在纸上。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">用简单语言解释</div>
+            <div class="step-desc">假装你在给一个12岁的孩子讲解，用最简单的语言解释这个概念，不用专业术语。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">找出盲点</div>
+            <div class="step-desc">讲不清楚的地方就是你的知识盲点，回去重新学习这部分内容。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">简化和类比</div>
+            <div class="step-desc">用类比和比喻让解释更简洁，直到你能用最简单的话说清楚为止。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>适用场景</h3>
+      <div class="tag-group">
+        <span class="tag highlight">备考复习</span>
+        <span class="tag">学习新技能</span>
+        <span class="tag">理解复杂概念</span>
+        <span class="tag">知识内化</span>
+        <span class="tag">写作输出</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL 03 刻意练习 -->
+  <div class="model-section" id="deliberate">
+    <div class="model-header">
+      <div class="model-big-icon">🎯</div>
+      <div class="model-header-text">
+        <div class="model-num-badge">MODEL 03</div>
+        <div style="height:8px"></div>
+        <div class="model-title">刻意练习法</div>
+        <div class="model-title-en">Deliberate Practice</div>
+      </div>
+    </div>
+
+    <div class="core-quote">
+      不是重复就能进步，高质量的刻意练习必须<strong>聚焦弱点、设定挑战</strong>，并持续获得反馈。用这套模型，你可以技能图解，逐步精炼，慢慢低效射击，真正让学习"生根"。
+    </div>
+
+    <div class="content-block">
+      <h3>刻意练习 vs 普通练习</h3>
+      <div class="compare-grid">
+        <div class="compare-box bad">
+          <h4>❌ 普通练习</h4>
+          重复已经会的内容<br>
+          没有明确目标<br>
+          缺乏即时反馈<br>
+          停留在舒适区<br>
+          时间长但进步慢
+        </div>
+        <div class="compare-box good">
+          <h4>✅ 刻意练习</h4>
+          专注最薄弱环节<br>
+          有明确的小目标<br>
+          即时获得反馈<br>
+          持续挑战边界<br>
+          时间短但进步快
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>核心要素</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">①</div>
+          <div class="step-content">
+            <div class="step-title">明确目标</div>
+            <div class="step-desc">设定具体、可衡量的小目标，而不是模糊的"我要变好"。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">②</div>
+          <div class="step-content">
+            <div class="step-title">专注弱点</div>
+            <div class="step-desc">找出你最薄弱的环节，集中精力突破，而不是练习已经擅长的部分。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">③</div>
+          <div class="step-content">
+            <div class="step-title">即时反馈</div>
+            <div class="step-desc">每次练习后立刻获得反馈，知道哪里对、哪里错，及时调整。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">④</div>
+          <div class="step-content">
+            <div class="step-title">走出舒适区</div>
+            <div class="step-desc">练习难度要略高于当前水平，保持在"学习区"而非"舒适区"。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL 04 目标学习法 -->
+  <div class="model-section" id="goal">
+    <div class="model-header">
+      <div class="model-big-icon">🏹</div>
+      <div class="model-header-text">
+        <div class="model-num-badge">MODEL 04</div>
+        <div style="height:8px"></div>
+        <div class="model-title">目标学习法</div>
+        <div class="model-title-en">Goal-Based Learning</div>
+      </div>
+    </div>
+
+    <div class="core-quote">
+      以终为始，设定明确目标，明确路径与关键节点。不是"今天学了什么"，而是<strong>"我要达到什么结果，需要学什么"</strong>。目标清晰了，才有方向感、成就感。
+    </div>
+
+    <div class="content-block">
+      <h3>目标学习三步骤</h3>
+      <div class="flow">
+        <div class="flow-item">🎯<br>明确目标<br><small style="font-size:11px;color:#9a8060;">我要达到什么</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">🗺️<br>设定标准<br><small style="font-size:11px;color:#9a8060;">设定可衡量的标准</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">📚<br>倒推路径<br><small style="font-size:11px;color:#9a8060;">需要学什么</small></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>SMART目标设定法</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">S</div>
+          <div class="step-content">
+            <div class="step-title">Specific 具体的</div>
+            <div class="step-desc">目标要具体明确，不能模糊。"我要学英语"→"我要在3个月内通过四级考试"。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">M</div>
+          <div class="step-content">
+            <div class="step-title">Measurable 可衡量的</div>
+            <div class="step-desc">目标要有可量化的指标，能判断是否达成。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">A</div>
+          <div class="step-content">
+            <div class="step-title">Achievable 可实现的</div>
+            <div class="step-desc">目标要有挑战性但也要现实可行，不能好高骛远。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">T</div>
+          <div class="step-content">
+            <div class="step-title">Time-bound 有时限的</div>
+            <div class="step-desc">设定明确的截止日期，给自己适当的压力和紧迫感。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL 05 SQ3R -->
+  <div class="model-section" id="sq3r">
+    <div class="model-header">
+      <div class="model-big-icon">📖</div>
+      <div class="model-header-text">
+        <div class="model-num-badge">MODEL 05</div>
+        <div style="height:8px"></div>
+        <div class="model-title">SQ3R 阅读法</div>
+        <div class="model-title-en">Survey · Question · Read · Recite · Review</div>
+      </div>
+    </div>
+
+    <div class="core-quote">
+      SQ3R是五个步骤的英文首字母缩写。它是一种<strong>主动阅读法</strong>，让阅读不再停留在"看过"，内化地提取重点，适合用于密集型学习。
+    </div>
+
+    <div class="content-block">
+      <h3>五步阅读法</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num" style="background:#7a8c6e;">S</div>
+          <div class="step-content">
+            <div class="step-title">Survey 浏览</div>
+            <div class="step-desc">先快速浏览全书/章节，看目录、标题、图表、摘要，建立整体框架，大约5分钟。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="background:#7a8cb5;">Q</div>
+          <div class="step-content">
+            <div class="step-title">Question 提问</div>
+            <div class="step-desc">把每个标题转化为问题，带着问题去阅读，激活主动思考。如"这一章要解决什么问题？"</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="background:#b5622a;">R</div>
+          <div class="step-content">
+            <div class="step-title">Read 阅读</div>
+            <div class="step-desc">带着问题仔细阅读，寻找答案，标注重点，不要一字不漏地读，聚焦关键信息。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="background:#c9a84c;">R</div>
+          <div class="step-content">
+            <div class="step-title">Recite 复述</div>
+            <div class="step-desc">合上书，用自己的话回答之前提出的问题，检验理解程度，强化记忆。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="background:#9a7ab5;">R</div>
+          <div class="step-content">
+            <div class="step-title">Review 回顾</div>
+            <div class="step-desc">读完后回顾全章，整理笔记，建立知识体系，定期复习巩固。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL 06 学习区理论 -->
+  <div class="model-section" id="zone">
+    <div class="model-header">
+      <div class="model-big-icon">🌀</div>
+      <div class="model-header-text">
+        <div class="model-num-badge">MODEL 06</div>
+        <div style="height:8px"></div>
+        <div class="model-title">学习区理论</div>
+        <div class="model-title-en">Zone of Proximal Development</div>
+      </div>
+    </div>
+
+    <div class="core-quote">
+      你在舒适区、焦虑区，还是<strong>成长区</strong>？这个模型带我们认识到：挑战不是越难越好！适度挑战状态，状态可以，你才能真正进入"心流学习"状态，调节节奏，避免过载或倦怠。
+    </div>
+
+    <div class="content-block">
+      <h3>三个区域</h3>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px;">
+        <div style="padding:16px 20px;background:#fdf0ec;border-radius:12px;border-left:4px solid #e8a090;">
+          <div style="font-weight:600;color:#8b4a3a;margin-bottom:4px;font-size:14px;">😌 舒适区 Comfort Zone</div>
+          <div style="font-size:13px;color:#6b5535;font-family:'Noto Sans SC',sans-serif;">做已经熟悉的事，没有挑战，没有成长。长期停留会导致能力停滞，甚至退步。</div>
+        </div>
+        <div style="padding:16px 20px;background:#edf5ec;border-radius:12px;border-left:4px solid #90c890;">
+          <div style="font-weight:600;color:#3a6b3a;margin-bottom:4px;font-size:14px;">🌱 成长区 / 学习区 Learning Zone</div>
+          <div style="font-size:13px;color:#6b5535;font-family:'Noto Sans SC',sans-serif;">略高于当前水平的挑战，有一定难度但可以克服。这里是真正成长发生的地方，也是心流状态的温床。</div>
+        </div>
+        <div style="padding:16px 20px;background:#f0ecf8;border-radius:12px;border-left:4px solid #b090d8;">
+          <div style="font-weight:600;color:#5a3a8b;margin-bottom:4px;font-size:14px;">😰 焦虑区 Panic Zone</div>
+          <div style="font-size:13px;color:#6b5535;font-family:'Noto Sans SC',sans-serif;">挑战远超当前能力，产生焦虑和恐惧，学习效率反而下降。需要降低难度，回到学习区。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>如何找到你的学习区</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">评估当前水平</div>
+            <div class="step-desc">诚实地评估自己在某个领域的真实水平，不高估也不低估。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">设定略高的目标</div>
+            <div class="step-desc">选择比当前水平高出10-20%的挑战，感觉有点难但不至于崩溃。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">监测状态</div>
+            <div class="step-desc">如果感到无聊→提高难度；如果感到焦虑崩溃→降低难度，找到那个"刚刚好"的状态。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL 07 西蒙学习法 -->
+  <div class="model-section" id="simon">
+    <div class="model-header">
+      <div class="model-big-icon">🔄</div>
+      <div class="model-header-text">
+        <div class="model-num-badge">MODEL 07</div>
+        <div style="height:8px"></div>
+        <div class="model-title">西蒙学习法</div>
+        <div class="model-title-en">Simon Learning Method</div>
+      </div>
+    </div>
+
+    <div class="core-quote">
+      这是一种将复杂任务<strong>"模块化"</strong>的学习策略，核心在于优化大脑认知负荷，把知识拆成具体的案例→练习→输出，能让大脑更容易吸收信息、提取重点并整合到知识体系中。
+    </div>
+
+    <div class="content-block">
+      <h3>核心流程</h3>
+      <div class="flow" style="justify-content:center;">
+        <div class="flow-item">📥<br>输入<br><small style="font-size:11px;color:#9a8060;">获取信息</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">🧩<br>模块化<br><small style="font-size:11px;color:#9a8060;">拆解知识</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">💪<br>练习<br><small style="font-size:11px;color:#9a8060;">案例实操</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">📤<br>输出<br><small style="font-size:11px;color:#9a8060;">表达产出</small></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>模块化学习步骤</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">拆解知识点</div>
+            <div class="step-desc">把一个大主题拆成若干个小模块，每次只专注一个模块，降低认知负荷。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">案例学习</div>
+            <div class="step-desc">每个模块配合具体案例，让抽象知识变得具体可感，更容易理解和记忆。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">即时练习</div>
+            <div class="step-desc">学完一个模块立刻练习，趁热打铁，强化神经连接。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">整合输出</div>
+            <div class="step-desc">把各个模块整合起来，形成完整的知识体系，并通过输出（写作/讲解）巩固。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL 08 布鲁姆认知层级 -->
+  <div class="model-section" id="bloom">
+    <div class="model-header">
+      <div class="model-big-icon">🧠</div>
+      <div class="model-header-text">
+        <div class="model-num-badge">MODEL 08</div>
+        <div style="height:8px"></div>
+        <div class="model-title">布鲁姆认知层级</div>
+        <div class="model-title-en">Bloom's Taxonomy of Cognitive Levels</div>
+      </div>
+    </div>
+
+    <div class="core-quote">
+      布鲁姆将知识过程分为六层：<strong>记忆→理解→应用→分析→评价→创造</strong>。如果你总觉得学了很多但没用，可能是因为只停留在"记忆"层，这个模型帮你识别别人思维深度，并向更高阶知识迁移。
+    </div>
+
+    <div class="content-block">
+      <h3>六层认知金字塔</h3>
+      <div class="pyramid">
+        <div class="pyramid-row" style="width:130px;background:#8b4a3a;">创造 <span>最高阶</span></div>
+        <div class="pyramid-row" style="width:180px;background:#a05a40;">评价</div>
+        <div class="pyramid-row" style="width:230px;background:#b56a48;">分析</div>
+        <div class="pyramid-row" style="width:280px;background:#c47a50;">应用</div>
+        <div class="pyramid-row" style="width:330px;background:#c9a84c;">理解</div>
+        <div class="pyramid-row" style="width:380px;background:#a8a090;">记忆 <span>基础层</span></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>六层详解与对应行动</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num" style="background:#a8a090;font-size:10px;">记忆</div>
+          <div class="step-content">
+            <div class="step-title">记忆 Remember</div>
+            <div class="step-desc">能回忆、识别基本事实和概念。行动：背诵、列举、复述。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="background:#c9a84c;font-size:10px;">理解</div>
+          <div class="step-content">
+            <div class="step-title">理解 Understand</div>
+            <div class="step-desc">能解释、总结、举例说明。行动：用自己的话解释、做类比、画思维导图。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="background:#c47a50;font-size:10px;">应用</div>
+          <div class="step-content">
+            <div class="step-title">应用 Apply</div>
+            <div class="step-desc">能在新情境中使用所学知识。行动：解题、实操、项目练习。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="background:#b56a48;font-size:10px;">分析</div>
+          <div class="step-content">
+            <div class="step-title">分析 Analyze</div>
+            <div class="step-desc">能拆解、比较、找出规律和关系。行动：对比分析、找原因、拆解结构。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="background:#a05a40;font-size:10px;">评价</div>
+          <div class="step-content">
+            <div class="step-title">评价 Evaluate</div>
+            <div class="step-desc">能判断、批判、做出有依据的决策。行动：写评论、辩论、做决策分析。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="background:#8b4a3a;font-size:10px;">创造</div>
+          <div class="step-content">
+            <div class="step-title">创造 Create</div>
+            <div class="step-desc">能整合知识创造新事物。行动：写作、设计、发明、提出新方案。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>成长疗愈能量站 · 知识库 &nbsp;|&nbsp; <span>DISCOVER YOURSELF · HEAL WITHIN</span></p>
+  <p style="margin-top:8px;font-size:11px;opacity:0.6;"><a href="index.html" style="color:var(--gold);text-decoration:none;">← 返回首页</a></p>
+</footer>
+
+</body>
+</html>

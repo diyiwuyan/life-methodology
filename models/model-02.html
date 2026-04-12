@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>心流学习法 · 8大学习模型</title>
+<style>
+:root{--bg:#0f0f13;--bg2:#16161d;--bg3:#1e1e28;--border:#2a2a38;--text:#e8e8f0;--text2:#9090b0;--text3:#5a5a78;--accent:#7c6af7;--accent2:#a594f9;--c1:#4ecdc4;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+.hero{background:linear-gradient(160deg,#16161d 0%,#0f1e1e 100%);padding:50px 40px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 100% at 70% 50%,rgba(78,205,196,0.1) 0%,transparent 70%);}
+.nav-row{display:flex;align-items:center;gap:12px;margin-bottom:24px;position:relative;}
+.back{color:var(--text3);text-decoration:none;font-size:12px;letter-spacing:1px;transition:color 0.2s;}
+.back:hover{color:var(--accent2);}
+.sep{color:var(--text3);}
+.badge{font-size:11px;background:rgba(78,205,196,0.15);color:var(--c1);border:1px solid rgba(78,205,196,0.3);padding:3px 10px;border-radius:10px;}
+.hero-icon{font-size:48px;margin-bottom:16px;position:relative;}
+.hero h1{font-size:40px;font-weight:800;letter-spacing:-1px;margin-bottom:10px;position:relative;}
+.hero h1 em{color:var(--c1);font-style:normal;}
+.hero-sub{font-size:15px;color:var(--text2);position:relative;max-width:600px;}
+.main{max-width:860px;margin:0 auto;padding:50px 30px;}
+.section{margin-bottom:44px;}
+.section-title{font-size:13px;letter-spacing:3px;color:var(--text3);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px;}
+.card p{color:var(--text2);font-size:14px;line-height:1.9;}
+.card p+p{margin-top:12px;}
+/* 心流图 */
+.flow-chart{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:30px;text-align:center;}
+.flow-axis{position:relative;width:100%;max-width:400px;margin:0 auto;aspect-ratio:1;}
+.flow-axis svg{width:100%;height:100%;}
+/* 条件列表 */
+.conditions{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.cond{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px;}
+.cond-icon{font-size:24px;margin-bottom:8px;}
+.cond-title{font-size:14px;font-weight:600;margin-bottom:6px;}
+.cond-desc{font-size:12px;color:var(--text3);line-height:1.6;}
+/* 步骤 */
+.steps{display:flex;flex-direction:column;gap:12px;}
+.step{display:flex;gap:16px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;}
+.step-num{width:36px;height:36px;border-radius:10px;background:rgba(78,205,196,0.15);color:var(--c1);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-title{font-size:15px;font-weight:600;margin-bottom:6px;}
+.step-desc{font-size:13px;color:var(--text2);line-height:1.7;}
+.quote{background:linear-gradient(135deg,rgba(78,205,196,0.08),rgba(124,106,247,0.08));border:1px solid rgba(78,205,196,0.2);border-radius:14px;padding:28px;text-align:center;}
+.quote p{font-size:18px;font-weight:500;color:var(--text);line-height:1.7;font-style:italic;}
+.quote cite{display:block;margin-top:12px;font-size:12px;color:var(--text3);}
+.page-nav{display:flex;justify-content:space-between;margin-top:50px;padding-top:30px;border-top:1px solid var(--border);}
+.page-nav a{color:var(--text2);text-decoration:none;font-size:13px;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
+.page-nav a:hover{color:var(--accent2);}
+footer{border-top:1px solid var(--border);padding:30px;text-align:center;color:var(--text3);font-size:12px;}
+footer a{color:var(--accent2);text-decoration:none;}
+@media(max-width:600px){.hero{padding:30px 20px;}.main{padding:30px 16px;}.conditions{grid-template-columns:1fr;}.hero h1{font-size:28px;}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="nav-row">
+    <a href="../index.html" class="back">主页</a>
+    <span class="sep">/</span>
+    <a href="index.html" class="back">8大学习模型</a>
+    <span class="sep">/</span>
+    <span class="badge">MODEL 02</span>
+  </div>
+  <div class="hero-icon">🌊</div>
+  <h1><em>心流</em>学习法</h1>
+  <p class="hero-sub">在挑战与能力的完美平衡点上，进入忘我的深度专注状态，实现高效且愉悦的学习体验</p>
+</div>
+
+<div class="main">
+
+  <div class="section">
+    <div class="section-title">什么是心流</div>
+    <div class="card">
+      <p>心流（Flow）由心理学家米哈里·契克森米哈伊提出。它是一种完全沉浸于当前活动的心理状态——时间感消失，自我意识淡化，行动与意识合而为一。</p>
+      <p>在心流状态下，学习效率可以提升数倍。关键在于：<strong>任务难度必须略高于当前能力水平</strong>。太简单会无聊，太难会焦虑，只有在"拉伸区"才能触发心流。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">心流触发条件</div>
+    <div class="conditions">
+      <div class="cond"><div class="cond-icon">⚖️</div><div class="cond-title">挑战与能力匹配</div><div class="cond-desc">任务难度比当前能力高出约4%，处于"拉伸区"而非"恐慌区"</div></div>
+      <div class="cond"><div class="cond-icon">🎯</div><div class="cond-title">明确的目标</div><div class="cond-desc">清楚知道自己在做什么、要达到什么结果，减少认知模糊</div></div>
+      <div class="cond"><div class="cond-icon">⚡</div><div class="cond-title">即时反馈</div><div class="cond-desc">能立刻知道自己做得对不对，形成快速调整的闭环</div></div>
+      <div class="cond"><div class="cond-icon">🚫</div><div class="cond-title">排除干扰</div><div class="cond-desc">关闭通知、创造专注环境，让注意力不被打断</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">如何主动进入心流</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">设计"拉伸任务"</div>
+          <div class="step-desc">将学习任务拆解，找到比当前能力稍难的部分重点攻克。不要选太简单（无聊）或太难（焦虑）的任务。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">建立启动仪式</div>
+          <div class="step-desc">固定的启动动作（如泡一杯茶、戴上耳机）能帮助大脑快速切换到专注模式，降低进入心流的门槛。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">保护专注时间块</div>
+          <div class="step-desc">预留至少90分钟的不间断时间。心流通常在专注15-20分钟后才会出现，频繁打断会让心流无法形成。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">记录心流时刻</div>
+          <div class="step-desc">记录什么时间、什么任务、什么环境下最容易进入心流，逐步找到属于自己的心流触发规律。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">心流金句</div>
+    <div class="quote">
+      <p>"最好的时刻通常不是被动、放松的时刻……而是一个人的身体或心智被自愿延伸到极限，去完成某件困难而有价值的事情。"</p>
+      <cite>— 米哈里·契克森米哈伊《心流》</cite>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="model-01.html">← 上一个：费曼学习法</a>
+    <a href="model-03.html">下一个：间隔重复法 →</a>
+  </div>
+</div>
+
+<footer>
+  <p><a href="../index.html">← 返回主页</a> &nbsp;·&nbsp; 人生方法论知识库</p>
+</footer>
+</body>
+</html>

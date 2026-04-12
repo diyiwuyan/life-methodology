@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沟通管理 · 思维模型</title>
+<style>
+:root{--bg:#0f0f13;--bg2:#16161d;--bg3:#1e1e28;--border:#2a2a38;--border2:#3a3a50;--text:#e8e8f0;--text2:#9090b0;--text3:#5a5a78;--accent:#7c6af7;--accent2:#a594f9;--c1:#ff8a65;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+.hero{background:linear-gradient(160deg,#16161d 0%,#0f0f13 100%);padding:50px 40px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(255,138,101,0.12) 0%,transparent 70%);}
+.nav-row{display:flex;align-items:center;gap:10px;margin-bottom:24px;position:relative;flex-wrap:wrap;}
+.back{color:var(--text3);text-decoration:none;font-size:12px;letter-spacing:1px;transition:color 0.2s;}.back:hover{color:var(--accent2);}
+.sep{color:var(--text3);font-size:12px;}
+.cat-badge{font-size:11px;background:rgba(255,138,101,0.15);color:var(--c1);border:1px solid rgba(255,138,101,0.3);padding:3px 10px;border-radius:10px;}
+.hero-icon{font-size:44px;margin-bottom:14px;position:relative;}
+.hero h1{font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:8px;position:relative;}
+.hero h1 em{color:var(--c1);font-style:normal;}
+.hero-sub{font-size:14px;color:var(--text2);position:relative;}
+.hero-meta{display:flex;gap:20px;margin-top:16px;position:relative;}
+.hero-meta span{font-size:12px;color:var(--text3);}.hero-meta strong{color:var(--text2);}
+.main{max-width:900px;margin:0 auto;padding:50px 30px;}
+.model-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;margin-bottom:14px;overflow:hidden;transition:border-color 0.2s;}
+.model-card.open{border-color:var(--border2);}
+.model-header{display:flex;align-items:center;gap:14px;padding:20px 24px;cursor:pointer;user-select:none;}
+.model-header:hover{background:rgba(255,255,255,0.02);}
+.model-num{font-size:11px;color:var(--text3);min-width:28px;flex-shrink:0;}
+.model-title{font-size:16px;font-weight:600;flex:1;}
+.model-tag{font-size:11px;padding:2px 10px;border-radius:10px;background:rgba(255,138,101,0.1);color:var(--c1);border:1px solid rgba(255,138,101,0.2);white-space:nowrap;}
+.model-arrow{color:var(--text3);font-size:12px;transition:transform 0.25s;flex-shrink:0;}
+.model-card.open .model-arrow{transform:rotate(180deg);}
+.model-body{display:none;padding:0 24px 24px;border-top:1px solid var(--border);}
+.model-card.open .model-body{display:block;}
+.model-desc{font-size:14px;color:var(--text2);line-height:1.9;margin-top:16px;}
+.model-steps{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.step{display:flex;gap:12px;align-items:flex-start;}
+.step-dot{width:22px;height:22px;border-radius:6px;background:rgba(255,138,101,0.15);color:var(--c1);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.step-text{font-size:13px;color:var(--text2);line-height:1.7;}
+.step-text strong{color:var(--text);display:block;margin-bottom:2px;}
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+.cat-nav a{font-size:12px;padding:6px 14px;border-radius:20px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);text-decoration:none;transition:all 0.2s;}
+.cat-nav a:hover,.cat-nav a.active{background:rgba(255,138,101,0.1);border-color:rgba(255,138,101,0.3);color:var(--c1);}
+footer{border-top:1px solid var(--border);padding:30px;text-align:center;color:var(--text3);font-size:12px;}
+footer a{color:var(--accent2);text-decoration:none;}
+@media(max-width:600px){.hero{padding:30px 20px;}.main{padding:30px 16px;}.hero h1{font-size:26px;}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="nav-row">
+    <a href="../index.html" class="back">主页</a><span class="sep">/</span>
+    <a href="index.html" class="back">120思维模型</a><span class="sep">/</span>
+    <span class="cat-badge">💬 沟通管理</span>
+  </div>
+  <div class="hero-icon">💬</div>
+  <h1><em>沟通管理</em>模型</h1>
+  <p class="hero-sub">掌握高效表达与深度倾听，让每一次沟通都创造真实的连接与价值</p>
+  <div class="hero-meta"><span>共 <strong>10</strong> 个模型</span><span>编号 <strong>071–080</strong></span></div>
+</div>
+<div class="main">
+  <div class="cat-nav">
+    <a href="cat-01.html">🎓 学习</a>
+    <a href="cat-02.html">🧠 认知</a>
+    <a href="cat-03.html">💛 情绪</a>
+    <a href="cat-04.html">✅ 习惯</a>
+    <a href="cat-05.html">🎯 目标</a>
+    <a href="cat-06.html">🔄 复盘</a>
+    <a href="cat-07.html" class="active">💬 沟通</a>
+    <a href="cat-08.html">🤝 人际</a>
+    <a href="cat-09.html">💰 财富</a>
+    <a href="cat-10.html">🚀 商业</a>
+  </div>
+
+  <div class="model-card" id="m071">
+    <div class="model-header" onclick="toggle('m071')">
+      <span class="model-num">071</span>
+      <span class="model-title">沟通漏斗模型</span>
+      <span class="model-tag">信息传递</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">信息在传递过程中逐层损耗：心里想的100%→嘴上说的80%→对方听到的60%→对方理解的40%→对方记住的20%。有效沟通需要主动弥补每一层的损耗。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>减少表达损耗</strong>想清楚再说，用结构化表达（结论先行）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>减少传递损耗</strong>确认对方听到了关键信息（复述确认）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>减少理解损耗</strong>用例子和类比帮助理解</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>减少记忆损耗</strong>重要信息书面确认，发会议纪要</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m072">
+    <div class="model-header" onclick="toggle('m072')">
+      <span class="model-num">072</span>
+      <span class="model-title">沟通四维模型</span>
+      <span class="model-tag">沟通框架</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">德国心理学家弗里德曼·舒尔茨·冯·图恩提出。每条信息都包含四个层面：事实、关系、自我表露、诉求。理解四个层面，避免沟通误解。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>事实层面</strong>信息的客观内容是什么（数据、事实）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>关系层面</strong>说话者如何看待双方关系（平等/上下级）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>自我表露</strong>说话者透露了什么关于自己的信息</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>诉求层面</strong>说话者希望对方做什么（显性或隐性请求）</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m073">
+    <div class="model-header" onclick="toggle('m073')">
+      <span class="model-num">073</span>
+      <span class="model-title">FOSSA模型</span>
+      <span class="model-tag">结构化沟通</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">聚焦-开放-支持-总结-行动的结构化沟通框架，适用于重要对话和会议，确保沟通有明确目的和产出。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>Focus聚焦</strong>明确这次沟通的目的和期望结果</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>Open开放</strong>用开放式问题了解对方观点和需求</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>Support支持</strong>表达理解和支持，建立心理安全感</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>Summary总结+Action行动</strong>确认共识，明确下一步行动</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m074">
+    <div class="model-header" onclick="toggle('m074')">
+      <span class="model-num">074</span>
+      <span class="model-title">PREP表达法</span>
+      <span class="model-tag">结构化表达</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">观点-理由-例子-观点的结构化表达框架。先说结论，再说理由，用例子支撑，最后重申观点，让表达清晰有力，避免绕弯子。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>P观点</strong>先说你的核心结论（结论先行，不要铺垫太多）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>R理由</strong>给出2-3个支持理由（逻辑支撑）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>E例子</strong>用具体案例或数据支撑（增加可信度）</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>P重申</strong>再次强调核心观点（加深印象）</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m075">
+    <div class="model-header" onclick="toggle('m075')">
+      <span class="model-num">075</span>
+      <span class="model-title">非暴力沟通</span>
+      <span class="model-tag">深度连接</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">马歇尔·卢森堡提出。观察-感受-需要-请求四步框架，将评判性语言转化为连接性语言，建立真实的人际连接，减少冲突。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>观察</strong>描述客观事实，不加评判（你迟到了30分钟，而非你总是迟到）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>感受</strong>表达自己的感受（我感到担心/失望）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>需要</strong>说出背后的需要（我需要被尊重/可靠性）</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>请求</strong>提出具体可行的请求（下次能提前告知吗？）</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m076">
+    <div class="model-header" onclick="toggle('m076')">
+      <span class="model-num">076</span>
+      <span class="model-title">SCQA表达结构</span>
+      <span class="model-tag">金字塔表达</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">情境-冲突-问题-答案的金字塔表达结构，源自麦肯锡，适用于汇报和说服，让听众自然地跟随你的逻辑走向结论。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>S情境</strong>建立共同背景，让对方进入状态（我们都知道...）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>C冲突</strong>引入变化或问题，制造张力（但是/然而...）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>Q问题</strong>由冲突自然引出的核心问题（那么我们该怎么办？）</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>A答案</strong>你的解决方案或核心观点（我建议...）</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m077">
+    <div class="model-header" onclick="toggle('m077')">
+      <span class="model-num">077</span>
+      <span class="model-title">GROW沟通模型</span>
+      <span class="model-tag">教练对话</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">目标-现实-选择-意愿的教练对话框架，通过提问而非给答案，帮助对方自己找到解决方案，提升对方的自主性和执行力。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>Goal</strong>你想达到什么目标？（明确方向）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>Reality</strong>现在的实际情况是什么？（了解现状）</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>Options</strong>有哪些可能的选择和方案？（扩展可能性）</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>Will</strong>你愿意采取哪个行动？什么时候开始？（承诺行动）</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m078">
+    <div class="model-header" onclick="toggle('m078')">
+      <span class="model-num">078</span>
+      <span class="model-title">积极倾听法</span>
+      <span class="model-tag">深度倾听</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">全身心投入理解对方的倾听技术。大多数人在听的时候其实在准备自己的回应，积极倾听要求真正理解对方的意思、感受和需求。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>全身投入</strong>放下手机，保持眼神接触，身体前倾</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>不打断</strong>让对方说完，不急于回应或评判</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>反映理解</strong>用自己的话复述对方的意思（你是说...）</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>问澄清问题</strong>你说的X是指...吗？帮助深入理解</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m079">
+    <div class="model-header" onclick="toggle('m079')">
+      <span class="model-num">079</span>
+      <span class="model-title">SCRY沟通法则</span>
+      <span class="model-tag">清晰表达</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">结构化清晰表达的沟通原则：简洁-清晰-相关-有价值。让每次沟通都高效有价值，减少信息噪音，提升沟通ROI。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>Simple简洁</strong>去掉不必要的信息，直达核心</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>Clear清晰</strong>用具体而非抽象的语言，避免模糊表达</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>Relevant相关</strong>确保内容与对方的需求和关注点相关</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>Yielding有价值</strong>每次沟通都要有明确的产出和价值</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m080">
+    <div class="model-header" onclick="toggle('m080')">
+      <span class="model-num">080</span>
+      <span class="model-title">GRD高效沟通</span>
+      <span class="model-tag">高效沟通</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">目标-现实-行动的高效沟通框架，适用于日常工作沟通，快速对齐目标、现状和行动，减少沟通成本，提升执行效率。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>Goal</strong>明确这次沟通要达到什么目的（对齐目标）</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>Reality</strong>同步当前的实际情况和约束条件</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>Do</strong>确定具体的行动项、责任人和时间节点</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer><p><a href="cat-06.html">← 复盘管理</a> &nbsp;·&nbsp; <a href="index.html">返回总览</a> &nbsp;·&nbsp; <a href="cat-08.html">人际管理 →</a></p></footer>
+<script>function toggle(id){document.getElementById(id).classList.toggle('open');}</script>
+</body>
+</html>

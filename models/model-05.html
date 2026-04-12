@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>主动阅读法 · 8大学习模型</title>
+<style>
+:root{--bg:#0f0f13;--bg2:#16161d;--bg3:#1e1e28;--border:#2a2a38;--text:#e8e8f0;--text2:#9090b0;--text3:#5a5a78;--accent:#7c6af7;--accent2:#a594f9;--c1:#56c596;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+.hero{background:linear-gradient(160deg,#16161d 0%,#0f1e16 100%);padding:50px 40px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 100% at 50% 0%,rgba(86,197,150,0.1) 0%,transparent 70%);}
+.nav-row{display:flex;align-items:center;gap:12px;margin-bottom:24px;position:relative;}
+.back{color:var(--text3);text-decoration:none;font-size:12px;letter-spacing:1px;transition:color 0.2s;}
+.back:hover{color:var(--accent2);}
+.sep{color:var(--text3);}
+.badge{font-size:11px;background:rgba(86,197,150,0.15);color:var(--c1);border:1px solid rgba(86,197,150,0.3);padding:3px 10px;border-radius:10px;}
+.hero-icon{font-size:48px;margin-bottom:16px;position:relative;}
+.hero h1{font-size:40px;font-weight:800;letter-spacing:-1px;margin-bottom:10px;position:relative;}
+.hero h1 em{color:var(--c1);font-style:normal;}
+.hero-sub{font-size:15px;color:var(--text2);position:relative;max-width:600px;}
+.main{max-width:860px;margin:0 auto;padding:50px 30px;}
+.section{margin-bottom:44px;}
+.section-title{font-size:13px;letter-spacing:3px;color:var(--text3);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px;}
+.card p{color:var(--text2);font-size:14px;line-height:1.9;}
+.card p+p{margin-top:12px;}
+/* SQ3R五步 */
+.sq3r{display:flex;flex-direction:column;gap:0;}
+.sq-step{display:flex;gap:0;border:1px solid var(--border);overflow:hidden;}
+.sq-step:first-child{border-radius:14px 14px 0 0;}
+.sq-step:last-child{border-radius:0 0 14px 14px;}
+.sq-step+.sq-step{border-top:none;}
+.sq-letter{width:60px;background:rgba(86,197,150,0.12);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:var(--c1);flex-shrink:0;}
+.sq-body{padding:18px 20px;flex:1;background:var(--bg2);}
+.sq-title{font-size:15px;font-weight:600;margin-bottom:6px;}
+.sq-desc{font-size:13px;color:var(--text2);line-height:1.7;}
+/* 对比 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.compare-box{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px;}
+.compare-box.bad{border-color:rgba(240,98,98,0.2);}
+.compare-box.good{border-color:rgba(86,197,150,0.2);}
+.compare-label{font-size:11px;letter-spacing:2px;margin-bottom:10px;}
+.compare-label.bad{color:#f06262;}
+.compare-label.good{color:var(--c1);}
+.compare-item{font-size:13px;color:var(--text2);padding:6px 0;border-bottom:1px solid var(--border);line-height:1.6;}
+.compare-item:last-child{border-bottom:none;}
+.quote{background:linear-gradient(135deg,rgba(86,197,150,0.08),rgba(124,106,247,0.08));border:1px solid rgba(86,197,150,0.2);border-radius:14px;padding:28px;text-align:center;}
+.quote p{font-size:18px;font-weight:500;color:var(--text);line-height:1.7;font-style:italic;}
+.quote cite{display:block;margin-top:12px;font-size:12px;color:var(--text3);}
+.page-nav{display:flex;justify-content:space-between;margin-top:50px;padding-top:30px;border-top:1px solid var(--border);}
+.page-nav a{color:var(--text2);text-decoration:none;font-size:13px;transition:color 0.2s;}
+.page-nav a:hover{color:var(--accent2);}
+footer{border-top:1px solid var(--border);padding:30px;text-align:center;color:var(--text3);font-size:12px;}
+footer a{color:var(--accent2);text-decoration:none;}
+@media(max-width:600px){.hero{padding:30px 20px;}.main{padding:30px 16px;}.compare{grid-template-columns:1fr;}.hero h1{font-size:28px;}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="nav-row">
+    <a href="../index.html" class="back">主页</a>
+    <span class="sep">/</span>
+    <a href="index.html" class="back">8大学习模型</a>
+    <span class="sep">/</span>
+    <span class="badge">MODEL 05</span>
+  </div>
+  <div class="hero-icon">📖</div>
+  <h1><em>主动阅读</em>法</h1>
+  <p class="hero-sub">SQ3R框架：预览、提问、阅读、复述、回顾，将被动阅读转为主动学习，大幅提升理解与记忆</p>
+</div>
+
+<div class="main">
+
+  <div class="section">
+    <div class="section-title">核心原理</div>
+    <div class="card">
+      <p>大多数人阅读是"被动的"——眼睛扫过文字，却没有真正处理信息。SQ3R（Survey·Question·Read·Recite·Review）由弗朗西斯·罗宾逊于1946年提出，是将阅读转化为主动学习的经典框架。</p>
+      <p>主动阅读的核心是<strong>带着问题读书</strong>。当你先提出问题，大脑会自动在阅读中寻找答案，注意力更集中，理解更深刻，记忆更持久。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">SQ3R 五步框架</div>
+    <div class="sq3r">
+      <div class="sq-step">
+        <div class="sq-letter">S</div>
+        <div class="sq-body">
+          <div class="sq-title">Survey · 预览</div>
+          <div class="sq-desc">先花5分钟浏览全书/章节：看目录、标题、小标题、图表、摘要。建立整体框架，让大脑有"地图"。</div>
+        </div>
+      </div>
+      <div class="sq-step">
+        <div class="sq-letter">Q</div>
+        <div class="sq-body">
+          <div class="sq-title">Question · 提问</div>
+          <div class="sq-desc">将每个标题转化为问题。如"学习金字塔"→"什么是学习金字塔？它对我有什么用？"带着问题读，注意力自然集中。</div>
+        </div>
+      </div>
+      <div class="sq-step">
+        <div class="sq-letter">R</div>
+        <div class="sq-body">
+          <div class="sq-title">Read · 阅读</div>
+          <div class="sq-desc">带着问题仔细阅读，寻找答案。不要一边读一边划线——先读完一段，再回头标注重点。</div>
+        </div>
+      </div>
+      <div class="sq-step">
+        <div class="sq-letter">R</div>
+        <div class="sq-body">
+          <div class="sq-title">Recite · 复述</div>
+          <div class="sq-desc">读完每一节后，合上书，用自己的话回答之前提出的问题。这是最关键的一步，强迫大脑主动提取信息。</div>
+        </div>
+      </div>
+      <div class="sq-step">
+        <div class="sq-letter">R</div>
+        <div class="sq-body">
+          <div class="sq-title">Review · 回顾</div>
+          <div class="sq-desc">读完全章后，回顾所有问题和答案，检查理解是否完整。结合间隔重复，在1天、3天、7天后再次回顾。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">主动 vs 被动阅读</div>
+    <div class="compare">
+      <div class="compare-box bad">
+        <div class="compare-label bad">✗ 被动阅读</div>
+        <div class="compare-item">从头读到尾，不停翻页</div>
+        <div class="compare-item">遇到不懂的跳过</div>
+        <div class="compare-item">读完感觉懂了，但说不出来</div>
+        <div class="compare-item">一周后几乎全忘</div>
+      </div>
+      <div class="compare-box good">
+        <div class="compare-label good">✓ 主动阅读</div>
+        <div class="compare-item">先预览，带问题阅读</div>
+        <div class="compare-item">每节后合书复述</div>
+        <div class="compare-item">能用自己的话解释</div>
+        <div class="compare-item">配合间隔重复长期保留</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">阅读金句</div>
+    <div class="quote">
+      <p>"阅读一本书，应该是一场对话，而不是一场独白。"</p>
+      <cite>— 莫提默·艾德勒《如何阅读一本书》</cite>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="model-04.html">← 上一个：思维导图法</a>
+    <a href="model-06.html">下一个：刻意练习法 →</a>
+  </div>
+</div>
+
+<footer>
+  <p><a href="../index.html">← 返回主页</a> &nbsp;·&nbsp; 人生方法论知识库</p>
+</footer>
+</body>
+</html>

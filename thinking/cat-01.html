@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学习管理 · 思维模型</title>
+<style>
+:root{--bg:#0f0f13;--bg2:#16161d;--bg3:#1e1e28;--border:#2a2a38;--border2:#3a3a50;--text:#e8e8f0;--text2:#9090b0;--text3:#5a5a78;--accent:#7c6af7;--accent2:#a594f9;--c1:#5ba4f5;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+.hero{background:linear-gradient(160deg,#16161d 0%,#0f1a2e 100%);padding:50px 40px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(91,164,245,0.12) 0%,transparent 70%);}
+.nav-row{display:flex;align-items:center;gap:10px;margin-bottom:24px;position:relative;flex-wrap:wrap;}
+.back{color:var(--text3);text-decoration:none;font-size:12px;letter-spacing:1px;transition:color 0.2s;}
+.back:hover{color:var(--accent2);}
+.sep{color:var(--text3);font-size:12px;}
+.cat-badge{font-size:11px;background:rgba(91,164,245,0.15);color:var(--c1);border:1px solid rgba(91,164,245,0.3);padding:3px 10px;border-radius:10px;}
+.hero-icon{font-size:44px;margin-bottom:14px;position:relative;}
+.hero h1{font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:8px;position:relative;}
+.hero h1 em{color:var(--c1);font-style:normal;}
+.hero-sub{font-size:14px;color:var(--text2);position:relative;}
+.hero-meta{display:flex;gap:20px;margin-top:16px;position:relative;}
+.hero-meta span{font-size:12px;color:var(--text3);}
+.hero-meta strong{color:var(--text2);}
+.main{max-width:900px;margin:0 auto;padding:50px 30px;}
+/* 模型卡片 */
+.model-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;margin-bottom:14px;overflow:hidden;transition:border-color 0.2s;}
+.model-card.open{border-color:var(--border2);}
+.model-header{display:flex;align-items:center;gap:14px;padding:20px 24px;cursor:pointer;user-select:none;}
+.model-header:hover{background:rgba(255,255,255,0.02);}
+.model-num{font-size:11px;color:var(--text3);font-variant-numeric:tabular-nums;min-width:28px;flex-shrink:0;}
+.model-title{font-size:16px;font-weight:600;flex:1;}
+.model-tag{font-size:11px;padding:2px 10px;border-radius:10px;background:rgba(91,164,245,0.1);color:var(--c1);border:1px solid rgba(91,164,245,0.2);white-space:nowrap;}
+.model-arrow{color:var(--text3);font-size:12px;transition:transform 0.25s;flex-shrink:0;}
+.model-card.open .model-arrow{transform:rotate(180deg);}
+.model-body{display:none;padding:0 24px 24px;border-top:1px solid var(--border);}
+.model-card.open .model-body{display:block;}
+.model-desc{font-size:14px;color:var(--text2);line-height:1.9;margin-top:16px;}
+.model-steps{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.step{display:flex;gap:12px;align-items:flex-start;}
+.step-dot{width:22px;height:22px;border-radius:6px;background:rgba(91,164,245,0.15);color:var(--c1);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.step-text{font-size:13px;color:var(--text2);line-height:1.7;}
+.step-text strong{color:var(--text);display:block;margin-bottom:2px;}
+.model-quote{margin-top:16px;background:rgba(91,164,245,0.06);border-left:3px solid var(--c1);border-radius:0 8px 8px 0;padding:12px 16px;font-size:13px;color:var(--text2);font-style:italic;}
+/* 分类导航 */
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+.cat-nav a{font-size:12px;padding:6px 14px;border-radius:20px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);text-decoration:none;transition:all 0.2s;}
+.cat-nav a:hover,.cat-nav a.active{background:rgba(91,164,245,0.1);border-color:rgba(91,164,245,0.3);color:var(--c1);}
+footer{border-top:1px solid var(--border);padding:30px;text-align:center;color:var(--text3);font-size:12px;}
+footer a{color:var(--accent2);text-decoration:none;}
+@media(max-width:600px){.hero{padding:30px 20px;}.main{padding:30px 16px;}.hero h1{font-size:26px;}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="nav-row">
+    <a href="../index.html" class="back">主页</a><span class="sep">/</span>
+    <a href="index.html" class="back">120思维模型</a><span class="sep">/</span>
+    <span class="cat-badge">🎓 学习管理</span>
+  </div>
+  <div class="hero-icon">🎓</div>
+  <h1><em>学习管理</em>模型</h1>
+  <p class="hero-sub">掌握高效学习的底层方法，让每一分钟的学习都产生最大价值</p>
+  <div class="hero-meta"><span>共 <strong>10</strong> 个模型</span><span>编号 <strong>001–010</strong></span></div>
+</div>
+<div class="main">
+  <div class="cat-nav">
+    <a href="cat-01.html" class="active">🎓 学习</a>
+    <a href="cat-02.html">🧠 认知</a>
+    <a href="cat-03.html">💛 情绪</a>
+    <a href="cat-04.html">✅ 习惯</a>
+    <a href="cat-05.html">🎯 目标</a>
+    <a href="cat-06.html">🔄 复盘</a>
+    <a href="cat-07.html">💬 沟通</a>
+    <a href="cat-08.html">🤝 人际</a>
+    <a href="cat-09.html">💰 财富</a>
+    <a href="cat-10.html">🚀 商业</a>
+  </div>
+
+  <div class="model-card" id="m001">
+    <div class="model-header" onclick="toggle('m001')">
+      <span class="model-num">001</span>
+      <span class="model-title">费曼学习法</span>
+      <span class="model-tag">理解深化</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">由诺贝尔物理学奖得主理查德·费曼提出。核心洞察：<strong>如果你不能用简单的语言解释一件事，说明你还没有真正理解它。</strong>通过"教别人"这一高强度输出，强迫大脑完成真正的理解。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>选择概念，写下来</strong>假设要向12岁孩子解释，在纸上写下概念名称</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>用简单语言解释</strong>避免专业术语，用日常语言重新表达</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>找到盲区，回去学</strong>卡住的地方就是知识盲区，专门攻克</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>简化与类比</strong>用故事和类比让解释更生动直观</div></div>
+      </div>
+      <div class="model-quote">"如果你不能简单地解释它，说明你还没有充分理解它。" — Richard Feynman</div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m002">
+    <div class="model-header" onclick="toggle('m002')">
+      <span class="model-num">002</span>
+      <span class="model-title">创意学习法</span>
+      <span class="model-tag">创造力</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">激发创造力与联想力的学习方式。通过打破常规思维路径，在学习中主动建立跨领域联结，让知识不只是被记住，而是被创造性地运用。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>发散联想</strong>学习新知识时，主动联想与其他领域的相似之处</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>重组创造</strong>将不同领域的知识组合，产生新的理解和应用</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>输出验证</strong>通过创作（写作、绘图、项目）验证创意理解</div></div>
+      </div>
+      <div class="model-quote">"创造力就是把各种事物联结起来的能力。" — Steve Jobs</div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m003">
+    <div class="model-header" onclick="toggle('m003')">
+      <span class="model-num">003</span>
+      <span class="model-title">学习金字塔</span>
+      <span class="model-tag">记忆留存</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">美国学者埃德加·戴尔提出的"经验之塔"理论。不同学习方式的24小时记忆留存率差异巨大：被动学习（听讲5%、阅读10%）远低于主动学习（讨论50%、实践75%、教授他人90%）。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">▲</div><div class="step-text"><strong>教授他人 90%</strong>最高效的学习方式，倒逼深度理解</div></div>
+        <div class="step"><div class="step-dot">▲</div><div class="step-text"><strong>实践应用 75%</strong>动手做、真实项目中学习</div></div>
+        <div class="step"><div class="step-dot">▲</div><div class="step-text"><strong>小组讨论 50%</strong>与他人交流碰撞，加深理解</div></div>
+        <div class="step"><div class="step-dot">▼</div><div class="step-text"><strong>被动听讲 5%</strong>效率最低，但仍是常见学习方式</div></div>
+      </div>
+      <div class="model-quote">启示：尽量将学习方式从金字塔底部向顶部迁移。</div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m004">
+    <div class="model-header" onclick="toggle('m004')">
+      <span class="model-num">004</span>
+      <span class="model-title">遗忘曲线记忆法</span>
+      <span class="model-tag">记忆强化</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">基于艾宾浩斯遗忘曲线的间隔重复记忆法。记忆会随时间指数级衰减，但每次复习都能重置曲线并让下次遗忘速度变慢。在记忆即将消退时复习，效果最佳。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>学习后1天</strong>第一次复习，建立初始记忆</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>3天后</strong>第二次复习，强化短期记忆</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>7天后</strong>第三次复习，转入中期记忆</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>14→30天后</strong>第四、五次复习，接近永久记忆</div></div>
+      </div>
+      <div class="model-quote">工具推荐：Anki（基于SM-2算法自动调度复习时间）</div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m005">
+    <div class="model-header" onclick="toggle('m005')">
+      <span class="model-num">005</span>
+      <span class="model-title">康奈尔笔记法</span>
+      <span class="model-tag">笔记系统</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">由康奈尔大学Walter Pauk教授开发的结构化笔记系统。将笔记页分为三个区域：右侧主栏（记录内容）、左侧线索栏（关键词/问题）、底部总结栏（核心要点）。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">R</div><div class="step-text"><strong>记录 Record</strong>在主栏记录课堂/阅读内容，用缩写和符号提速</div></div>
+        <div class="step"><div class="step-dot">R</div><div class="step-text"><strong>简化 Reduce</strong>课后在线索栏写关键词和问题</div></div>
+        <div class="step"><div class="step-dot">R</div><div class="step-text"><strong>背诵 Recite</strong>遮住主栏，只看线索栏，尝试复述</div></div>
+        <div class="step"><div class="step-dot">R</div><div class="step-text"><strong>反思 Reflect</strong>思考内容的意义和联系</div></div>
+        <div class="step"><div class="step-dot">R</div><div class="step-text"><strong>复习 Review</strong>每周花10分钟回顾笔记</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m006">
+    <div class="model-header" onclick="toggle('m006')">
+      <span class="model-num">006</span>
+      <span class="model-title">SQ3R阅读法</span>
+      <span class="model-tag">阅读效率</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">Survey·Question·Read·Recite·Review，由弗朗西斯·罗宾逊于1946年提出。将被动阅读转化为主动学习的经典框架，核心是带着问题读书。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">S</div><div class="step-text"><strong>Survey 预览</strong>5分钟浏览目录、标题、图表，建立整体框架</div></div>
+        <div class="step"><div class="step-dot">Q</div><div class="step-text"><strong>Question 提问</strong>将标题转化为问题，带着问题阅读</div></div>
+        <div class="step"><div class="step-dot">R</div><div class="step-text"><strong>Read 阅读</strong>带着问题仔细阅读，寻找答案</div></div>
+        <div class="step"><div class="step-dot">R</div><div class="step-text"><strong>Recite 复述</strong>合上书，用自己的话回答问题</div></div>
+        <div class="step"><div class="step-dot">R</div><div class="step-text"><strong>Review 回顾</strong>读完全章后检查理解完整性</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m007">
+    <div class="model-header" onclick="toggle('m007')">
+      <span class="model-num">007</span>
+      <span class="model-title">西蒙学习法</span>
+      <span class="model-tag">快速精通</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">诺贝尔经济学奖得主赫伯特·西蒙提出：任何领域的基础知识都可以在6个月内掌握，关键是找到该领域的核心"组块"并系统学习。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>找到核心组块</strong>识别该领域最重要的50-100个基础概念</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>系统输入</strong>每天专注学习，建立知识框架</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>刻意练习</strong>在真实场景中反复应用核心组块</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>持续迭代</strong>根据反馈不断修正和深化理解</div></div>
+      </div>
+      <div class="model-quote">"任何领域的专家都只是掌握了约5万个组块。" — Herbert Simon</div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m008">
+    <div class="model-header" onclick="toggle('m008')">
+      <span class="model-num">008</span>
+      <span class="model-title">五星笔记法</span>
+      <span class="model-tag">笔记整理</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">从五个维度对知识进行结构化整理，确保笔记既完整又实用，便于后续复习和应用。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">★</div><div class="step-text"><strong>是什么 What</strong>核心概念的定义和本质</div></div>
+        <div class="step"><div class="step-dot">★</div><div class="step-text"><strong>为什么 Why</strong>这个知识的重要性和背景</div></div>
+        <div class="step"><div class="step-dot">★</div><div class="step-text"><strong>怎么做 How</strong>具体的操作步骤和方法</div></div>
+        <div class="step"><div class="step-dot">★</div><div class="step-text"><strong>举例子 Example</strong>具体案例和应用场景</div></div>
+        <div class="step"><div class="step-dot">★</div><div class="step-text"><strong>有联系 Connect</strong>与其他知识的关联和延伸</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m009">
+    <div class="model-header" onclick="toggle('m009')">
+      <span class="model-num">009</span>
+      <span class="model-title">RIA阅读法</span>
+      <span class="model-tag">拆书应用</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">由赵周在《这样读书就够了》中提出的拆书法。R·I·A三步将书中知识转化为个人能力，强调"学以致用"而非"学以致知"。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">R</div><div class="step-text"><strong>阅读原文 Read</strong>找到书中有价值的片段，原文摘录</div></div>
+        <div class="step"><div class="step-dot">I</div><div class="step-text"><strong>理解内化 Interpret</strong>用自己的话解释这段内容的含义</div></div>
+        <div class="step"><div class="step-dot">A</div><div class="step-text"><strong>行动应用 Apply</strong>写下如何在自己的生活/工作中应用</div></div>
+      </div>
+      <div class="model-quote">"读书不是为了记住书，而是为了改变自己。" — 赵周</div>
+    </div>
+  </div>
+
+  <div class="model-card" id="m010">
+    <div class="model-header" onclick="toggle('m010')">
+      <span class="model-num">010</span>
+      <span class="model-title">心流模型思维</span>
+      <span class="model-tag">专注状态</span>
+      <span class="model-arrow">▼</span>
+    </div>
+    <div class="model-body">
+      <p class="model-desc">由心理学家米哈里·契克森米哈伊提出。心流是完全沉浸于当前活动的心理状态，在挑战与能力的完美平衡点上触发，学习效率可提升数倍。</p>
+      <div class="model-steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>设计拉伸任务</strong>任务难度略高于当前能力（约4%），处于"拉伸区"</div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>建立启动仪式</strong>固定动作帮助大脑快速切换到专注模式</div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>保护90分钟时间块</strong>心流通常在专注15-20分钟后出现</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>记录心流时刻</strong>找到属于自己的心流触发规律</div></div>
+      </div>
+      <div class="model-quote">"最好的时刻是一个人的身体或心智被自愿延伸到极限。" — 米哈里·契克森米哈伊</div>
+    </div>
+  </div>
+
+</div>
+<footer>
+  <p><a href="index.html">← 返回思维模型总览</a> &nbsp;·&nbsp; <a href="cat-02.html">下一类：认知管理 →</a></p>
+</footer>
+<script>
+function toggle(id){
+  const card=document.getElementById(id);
+  card.classList.toggle('open');
+}
+</script>
+</body>
+</html>

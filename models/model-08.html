@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>联结学习法 · 8大学习模型</title>
+<style>
+:root{--bg:#0f0f13;--bg2:#16161d;--bg3:#1e1e28;--border:#2a2a38;--text:#e8e8f0;--text2:#9090b0;--text3:#5a5a78;--accent:#7c6af7;--accent2:#a594f9;--c1:#64b5f6;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+.hero{background:linear-gradient(160deg,#16161d 0%,#0f1520 100%);padding:50px 40px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 100% at 50% 0%,rgba(100,181,246,0.1) 0%,transparent 70%);}
+.nav-row{display:flex;align-items:center;gap:12px;margin-bottom:24px;position:relative;}
+.back{color:var(--text3);text-decoration:none;font-size:12px;letter-spacing:1px;transition:color 0.2s;}
+.back:hover{color:var(--accent2);}
+.sep{color:var(--text3);}
+.badge{font-size:11px;background:rgba(100,181,246,0.15);color:var(--c1);border:1px solid rgba(100,181,246,0.3);padding:3px 10px;border-radius:10px;}
+.hero-icon{font-size:48px;margin-bottom:16px;position:relative;}
+.hero h1{font-size:40px;font-weight:800;letter-spacing:-1px;margin-bottom:10px;position:relative;}
+.hero h1 em{color:var(--c1);font-style:normal;}
+.hero-sub{font-size:15px;color:var(--text2);position:relative;max-width:600px;}
+.main{max-width:860px;margin:0 auto;padding:50px 30px;}
+.section{margin-bottom:44px;}
+.section-title{font-size:13px;letter-spacing:3px;color:var(--text3);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px;}
+.card p{color:var(--text2);font-size:14px;line-height:1.9;}
+.card p+p{margin-top:12px;}
+/* 联结示意 */
+.connect-demo{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;}
+.conn-node{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:14px 18px;text-align:center;font-size:13px;}
+.conn-node.new{background:rgba(100,181,246,0.12);border-color:rgba(100,181,246,0.3);color:var(--c1);}
+.conn-arrow{color:var(--text3);font-size:20px;}
+/* 方法 */
+.methods{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.method{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px;}
+.method-icon{font-size:24px;margin-bottom:8px;}
+.method-title{font-size:14px;font-weight:600;margin-bottom:6px;}
+.method-desc{font-size:12px;color:var(--text3);line-height:1.6;}
+/* 步骤 */
+.steps{display:flex;flex-direction:column;gap:12px;}
+.step{display:flex;gap:16px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;}
+.step-num{width:36px;height:36px;border-radius:10px;background:rgba(100,181,246,0.15);color:var(--c1);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-title{font-size:15px;font-weight:600;margin-bottom:6px;}
+.step-desc{font-size:13px;color:var(--text2);line-height:1.7;}
+/* 总结卡 */
+.summary{background:linear-gradient(135deg,rgba(100,181,246,0.08),rgba(124,106,247,0.08));border:1px solid rgba(100,181,246,0.2);border-radius:14px;padding:24px;}
+.summary-title{font-size:14px;font-weight:600;margin-bottom:14px;color:var(--c1);}
+.summary-items{display:flex;flex-direction:column;gap:8px;}
+.summary-item{display:flex;gap:10px;font-size:13px;color:var(--text2);}
+.summary-item::before{content:'→';color:var(--c1);flex-shrink:0;}
+.quote{background:linear-gradient(135deg,rgba(100,181,246,0.08),rgba(124,106,247,0.08));border:1px solid rgba(100,181,246,0.2);border-radius:14px;padding:28px;text-align:center;margin-top:20px;}
+.quote p{font-size:18px;font-weight:500;color:var(--text);line-height:1.7;font-style:italic;}
+.quote cite{display:block;margin-top:12px;font-size:12px;color:var(--text3);}
+.page-nav{display:flex;justify-content:space-between;margin-top:50px;padding-top:30px;border-top:1px solid var(--border);}
+.page-nav a{color:var(--text2);text-decoration:none;font-size:13px;transition:color 0.2s;}
+.page-nav a:hover{color:var(--accent2);}
+footer{border-top:1px solid var(--border);padding:30px;text-align:center;color:var(--text3);font-size:12px;}
+footer a{color:var(--accent2);text-decoration:none;}
+@media(max-width:600px){.hero{padding:30px 20px;}.main{padding:30px 16px;}.methods{grid-template-columns:1fr;}.hero h1{font-size:28px;}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="nav-row">
+    <a href="../index.html" class="back">主页</a>
+    <span class="sep">/</span>
+    <a href="index.html" class="back">8大学习模型</a>
+    <span class="sep">/</span>
+    <span class="badge">MODEL 08</span>
+  </div>
+  <div class="hero-icon">🔗</div>
+  <h1><em>联结</em>学习法</h1>
+  <p class="hero-sub">将新知识与已有知识建立联系，通过类比和迁移加速理解与记忆——知识网络越丰富，学习越快</p>
+</div>
+
+<div class="main">
+
+  <div class="section">
+    <div class="section-title">核心原理</div>
+    <div class="card">
+      <p>联结学习法基于认知心理学中的"精细编码"理论：新知识越能与已有知识建立联系，就越容易被理解、记忆和迁移应用。</p>
+      <p>大脑不是硬盘，不能直接"存入"新信息。新知识必须通过与已有神经网络建立连接才能被保留。<strong>学习的本质是建立联系</strong>——类比、隐喻、对比、归类，都是建立联系的方式。知识网络越丰富，新知识就越容易找到"挂钩"。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">联结示意</div>
+    <div class="connect-demo">
+      <div class="conn-node">已知：电流</div>
+      <div class="conn-arrow">+</div>
+      <div class="conn-node new">新知：神经信号</div>
+      <div class="conn-arrow">→</div>
+      <div class="conn-node">类比：神经信号就像大脑里的"电流"</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">四种联结方式</div>
+    <div class="methods">
+      <div class="method"><div class="method-icon">🔄</div><div class="method-title">类比联结</div><div class="method-desc">用已知事物类比新概念，"X就像Y"的思维方式</div></div>
+      <div class="method"><div class="method-icon">↔️</div><div class="method-title">对比联结</div><div class="method-desc">通过与相似概念对比，明确新概念的独特之处</div></div>
+      <div class="method"><div class="method-icon">🗂️</div><div class="method-title">归类联结</div><div class="method-desc">将新知识归入已有的知识分类体系中</div></div>
+      <div class="method"><div class="method-icon">🌐</div><div class="method-title">跨域联结</div><div class="method-desc">在不同领域间发现共同规律，实现知识迁移</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">实践步骤</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">激活已有知识</div>
+          <div class="step-desc">学习新内容前，先回忆自己对这个领域已经知道什么。激活相关的已有知识，为新知识准备"挂钩"。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">主动寻找联系</div>
+          <div class="step-desc">学习时不断问自己："这和我已知的什么相似？有什么不同？可以用什么来类比？"不要被动接受，主动建立联系。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">用自己的话重述</div>
+          <div class="step-desc">用类比和联系重新表达新知识，而不是复述原文。能用自己的话说出来，说明联结已经建立。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">跨领域迁移应用</div>
+          <div class="step-desc">尝试将新知识应用到其他领域，或用其他领域的知识解释新概念。跨域联结是最强大的学习方式。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">8大模型综合应用</div>
+    <div class="summary">
+      <div class="summary-title">将8大模型联结起来使用</div>
+      <div class="summary-items">
+        <div class="summary-item">费曼法 + 联结法：用类比解释新概念，检验理解深度</div>
+        <div class="summary-item">间隔重复 + 组块法：将组块化的知识按遗忘曲线复习</div>
+        <div class="summary-item">心流 + 刻意练习：在心流状态下进行刻意练习，效率最高</div>
+        <div class="summary-item">思维导图 + 联结法：用导图可视化知识联结网络</div>
+        <div class="summary-item">主动阅读 + 费曼法：读完后用费曼法复述，双重强化</div>
+      </div>
+    </div>
+    <div class="quote">
+      <p>"学习不是积累孤立的事实，而是编织一张越来越密的知识网络。"</p>
+      <cite>— 基于认知心理学精细编码理论</cite>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="model-07.html">← 上一个：组块学习法</a>
+    <a href="index.html">← 返回模型列表</a>
+  </div>
+</div>
+
+<footer>
+  <p><a href="../index.html">← 返回主页</a> &nbsp;·&nbsp; 人生方法论知识库</p>
+</footer>
+</body>
+</html>
