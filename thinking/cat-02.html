@@ -49,6 +49,33 @@ footer a{color:var(--accent2);text-decoration:none;}
 .model-case{margin-top:16px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
 .model-case-label{font-size:10px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:8px;}
 .model-case-text{font-size:13px;color:var(--text2);line-height:1.8;}
+
+/* ── 折叠态强化：左侧彩色边条 + 悬停效果 ── */
+.model-card {
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.model-card:not(.open) {
+  border-left-color: #a594f940;
+}
+.model-card:not(.open):hover {
+  border-left-color: #a594f9;
+  box-shadow: 0 4px 24px #a594f918;
+  transform: translateX(2px);
+}
+.model-card.open {
+  border-left-color: #a594f9;
+  box-shadow: 0 4px 32px #a594f920;
+}
+/* 折叠态标题行悬停背景更明显 */
+.model-card:not(.open) .model-header:hover {
+  background: #a594f90d;
+}
+/* 折叠态编号颜色 */
+.model-card:not(.open) .model-num {
+  color: #a594f999;
+}
+
 </style>
 </head>
 <body>
