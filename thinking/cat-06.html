@@ -247,6 +247,18 @@ footer a{color:var(--accent2);text-decoration:none;}
   </div>
 </div>
 <footer><p><a href="cat-05.html">← 目标管理</a> &nbsp;·&nbsp; <a href="index.html">返回总览</a> &nbsp;·&nbsp; <a href="cat-07.html">沟通管理 →</a></p></footer>
-<script>function toggle(id){document.getElementById(id).classList.toggle('open');}</script>
+<script>
+function toggle(id){document.getElementById(id).classList.toggle('open');}
+(function(){
+  var hash = window.location.hash.slice(1);
+  if(hash){
+    var el = document.getElementById(hash);
+    if(el && el.classList.contains('model-card')){
+      el.classList.add('open');
+      setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'start'}); }, 80);
+    }
+  }
+})();
+</script>
 </body>
 </html>

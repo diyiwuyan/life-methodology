@@ -275,6 +275,16 @@ function toggle(id){
   const card=document.getElementById(id);
   card.classList.toggle('open');
 }
+(function(){
+  var hash = window.location.hash.slice(1);
+  if(hash){
+    var el = document.getElementById(hash);
+    if(el && el.classList.contains('model-card')){
+      el.classList.add('open');
+      setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'start'}); }, 80);
+    }
+  }
+})();
 </script>
 </body>
 </html>
